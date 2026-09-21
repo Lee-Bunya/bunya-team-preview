@@ -12,3 +12,5 @@
 .scroll-tour .feature-copy h3{font-size:28px;margin:14px 0}
 .scroll-tour .feature-copy p{font-size:17px;margin-bottom:18px}
 .scroll-tour{overflow-anchor:none}
+
+.broadcast-preview .scroll-tour #bh-panel .image-frame{height:clamp(260px,calc(100vh - 400px),450px);aspect-ratio:auto}
