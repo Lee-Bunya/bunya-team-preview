@@ -9,10 +9,10 @@
     <a href="index.html" class="logo"><img src="assets/brand/bunya-primary.svg" alt="Bunya" class="logo-img"></a>
     <button class="menu-btn" aria-label="Open menu" aria-controls="mMenu" aria-expanded="false" onclick="openMenu()">&#8801;</button>
     <nav class="nav-links">
+      <a href="index.html">Home</a>
       <div class="nav-item">
         <a role="button" tabindex="0" aria-label="Platform menu">Platform <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="dropdown">
-          <a href="index.html#whatis" class="dd-link"><span class="t">The Bunya operating system</span><span class="d">See how the whole system connects</span></a>
           <a href="command-centre.html" class="dd-link"><span class="t">Command Centre</span><span class="d">The core platform that runs the practice</span></a>
           <a href="broadcast-hq.html" class="dd-link"><span class="t">Broadcast HQ</span><span class="d">Campaigns, publishing and engagement</span></a>
           <a href="bunya-voice.html" class="dd-link"><span class="t">Bunya Voice</span><span class="d">Calls &amp; meetings, captured to the record</span></a>
@@ -31,7 +31,8 @@
   var MOBILE = `<div class="m-overlay" id="mMenu" role="dialog" aria-modal="true" aria-label="Site navigation" inert>
   <div class="m-top"><a href="index.html" class="logo"><img src="assets/brand/bunya-reversed.svg" alt="Bunya" class="logo-img"></a><button class="m-close" aria-label="Close menu" onclick="closeMenu()">&#10005;</button></div>
   <nav class="m-scroll" aria-label="Mobile navigation">
-    <details class="m-group"><summary>Platform</summary><a href="index.html#whatis">Operating system overview</a><a href="command-centre.html">Command Centre</a><a href="broadcast-hq.html">Broadcast HQ</a><a href="bunya-voice.html">Bunya Voice</a></details>
+    <a href="index.html" class="m-direct">Home</a>
+    <details class="m-group"><summary>Platform</summary><a href="command-centre.html">Command Centre</a><a href="broadcast-hq.html">Broadcast HQ</a><a href="bunya-voice.html">Bunya Voice</a></details>
     <a href="how-it-works.html" class="m-direct">How it works</a>
     <details class="m-group"><summary>Resources</summary><a href="resources.html">Resource library</a><a href="blog.html">Insights</a><a href="resources.html#comparisons">Comparisons</a><a href="cost-calculator.html">Cost calculator</a><a href="faq.html">FAQs</a></details>
     <a href="about.html" class="m-direct">About</a><a href="contact.html" class="m-direct">Contact</a>
