@@ -24,7 +24,7 @@
         <div class="dropdown"><a href="resources.html" class="dd-link"><span class="t">Resource library</span><span class="d">Explore all resources</span></a><a href="blog.html" class="dd-link"><span class="t">Insights</span><span class="d">Practical guides and articles</span></a><a href="resources.html#comparisons" class="dd-link"><span class="t">Comparisons</span><span class="d">Evaluate software approaches</span></a><a href="resources.html#tools" class="dd-link"><span class="t">Tools & calculators</span><span class="d">Explore costs and team capacity</span></a><a href="faq.html" class="dd-link"><span class="t">FAQs</span><span class="d">Answers to your questions</span></a></div>
       </div>
       <a href="about.html">About</a>
-      <a href="booking.html" class="nav-cta">Book a Demo &#8594;</a>
+      <a href="mailto:daniel@bunya.ai?subject=Book%20a%20Bunya%20demo&body=Hi%20Daniel%2C%0A%0AName%3A%20%0AFirm%3A%20%0APhone%20(optional)%3A%20%0A%0A" class="nav-cta">Book a Demo &#8594;</a>
     </nav>
   </div>
 </header>`;
@@ -37,7 +37,7 @@
     <details class="m-group"><summary>Resources</summary><a href="resources.html">Resource library</a><a href="blog.html">Insights</a><a href="resources.html#comparisons">Comparisons</a><a href="cost-calculator.html">Cost calculator</a><a href="faq.html">FAQs</a></details>
     <a href="about.html" class="m-direct">About</a><a href="contact.html" class="m-direct">Contact</a>
   </nav>
-  <div class="m-cta"><a href="test-drive.html?source=mobile-menu">Test Drive it Yourself</a><a href="booking.html?source=mobile-menu">Book a Demo &#8594;</a></div>
+  <div class="m-cta"><a href="mailto:daniel@bunya.ai?subject=Request%20a%20Bunya%20test%20drive&body=Hi%20Daniel%2C%0A%0AName%3A%20%0AFirm%3A%20%0APhone%20(optional)%3A%20%0A%0APlease%20send%20me%20the%20Command%20Centre%20demo%20link.">Test Drive it Yourself</a><a href="mailto:daniel@bunya.ai?subject=Book%20a%20Bunya%20demo&body=Hi%20Daniel%2C%0A%0AName%3A%20%0AFirm%3A%20%0APhone%20(optional)%3A%20%0A%0A">Book a Demo &#8594;</a></div>
 </div>`;
 
   function mount() {
