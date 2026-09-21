@@ -63,12 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
         location.assign(config.bookingsUrl);
       } else {
         if (result.email_status !== 'sent') throw new Error('Email unconfirmed');
-        status.textContent = 'Check your inbox — your demo link is on its way. If it does not arrive, check your junk folder or contact info@bunya.ai.';
+        status.textContent = 'Check your inbox — your demo link is on its way. If it does not arrive, check your junk folder or contact daniel@bunya.ai.';
         form.reset();
       }
       button.hidden = true;
     } catch {
-      status.textContent = 'We could not confirm your request was completed. Please try again, or email info@bunya.ai. Your entries are still here.';
+      status.textContent = 'We could not confirm your request was completed. Please try again, or email daniel@bunya.ai. Your entries are still here.';
     } finally {
       clearTimeout(timer); sending = false; button.disabled = false; status.focus();
     }
