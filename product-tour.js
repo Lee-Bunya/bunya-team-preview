@@ -4,7 +4,8 @@
  if(!section)return;
  const tabs=[...section.querySelectorAll('[role=tab]')];
  const isBroadcast=section.id==='create';
- const selectTab=tab=>isBroadcast?section.dispatchEvent(new CustomEvent('tourselect',{detail:tabs.indexOf(tab)})):select(tab);
+ const isVoice=section.id==='workflow';
+ const selectTab=tab=>(isBroadcast||isVoice)?section.dispatchEvent(new CustomEvent('tourselect',{detail:tabs.indexOf(tab)})):select(tab);
  const panel=section.querySelector('.wrap');
  const media=matchMedia('(min-width: 1000px) and (min-height: 720px) and (prefers-reduced-motion: no-preference)');
  let enabled=false,step=0,raf=0;
@@ -13,7 +14,7 @@
   const distance=offset-section.getBoundingClientRect().top;
   const index=Math.max(0,Math.min(tabs.length-1,Math.floor(Math.max(0,distance)/step)));
   if(tabs[index].getAttribute('aria-selected')!=='true')selectTab(tabs[index]);
-  section.querySelector('.feature-count').textContent=String(index+1).padStart(2,'0')+(isBroadcast?' / BROADCAST HQ':' / COMMAND CENTRE');
+  section.querySelector('.feature-count').textContent=String(index+1).padStart(2,'0')+(isBroadcast?' / BROADCAST HQ':isVoice?' / BUNYA VOICE':' / COMMAND CENTRE');
  }
  function setup(){
   enabled=media.matches;
