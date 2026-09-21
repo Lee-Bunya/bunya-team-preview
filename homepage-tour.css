@@ -1,0 +1,13 @@
+/* One viewport product tour, with the existing tab layout as the fallback. */
+.showcase.scroll-tour{padding:0;position:relative}
+.scroll-tour>.wrap{position:sticky;top:var(--tour-top);height:calc(100vh - var(--tour-top));padding-block:26px;display:flex;flex-direction:column;justify-content:center}
+.scroll-tour .section-heading{margin-bottom:12px;gap:40px}
+.scroll-tour .section-heading h2{font-size:clamp(36px,3.5vw,48px)}
+.scroll-tour .section-heading .eyebrow{margin-bottom:12px}
+.scroll-tour .section-heading>p{font-size:17px}
+.scroll-tour .tabs{margin-top:8px;flex-shrink:0}
+.scroll-tour .tabs button{padding-block:12px}
+.scroll-tour .feature-panel{padding-top:24px;min-height:0}
+.scroll-tour .feature-screen{height:clamp(260px,calc(100vh - 400px),450px)}
+.scroll-tour .feature-copy h3{font-size:28px;margin:14px 0}
+.scroll-tour .feature-copy p{font-size:17px;margin-bottom:18px}
