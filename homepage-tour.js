@@ -23,16 +23,17 @@
   update();
  }
  tabs.forEach((tab,index)=>tab.addEventListener('click',()=>{
-  if(enabled)window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-parseFloat(section.style.getPropertyValue('--tour-top'))+index*step+1,behavior:'instant'});
+  if(enabled)window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-parseFloat(section.style.getPropertyValue('--tour-top'))+index*step+step*.2,behavior:'instant'});
  }));
  // Keep keyboard selection aligned with the scroll position too.
  section.querySelector('[role=tablist]').addEventListener('keydown',e=>{
   if(enabled&&['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){
    const index=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');
-   window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-parseFloat(section.style.getPropertyValue('--tour-top'))+index*step+1,behavior:'instant'});
+   window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-parseFloat(section.style.getPropertyValue('--tour-top'))+index*step+step*.2,behavior:'instant'});
   }
  });
  window.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(update)},{passive:true});
  window.addEventListener('resize',setup);media.addEventListener('change',setup);
  setup();window.addEventListener('load',setup,{once:true});
 })();
+
