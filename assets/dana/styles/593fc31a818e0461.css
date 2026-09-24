@@ -1,0 +1,74 @@
+/* =====================================================================
+   Bunya site consistency layer — identical on every page.
+   Unifies header, footer, content width, headline scale, Saira kickers,
+   the rounded card scale and the Midnight closing panel across templates.
+   ===================================================================== */
+:root{--c-gutter:clamp(20px,5vw,64px)}
+/* One content width on every page */
+:root body .wrap,:root body .hp-wrap{width:calc(100% - 2*var(--c-gutter))!important;max-width:1200px!important;margin-inline:auto!important}
+/* Header */
+:root body header.nav{position:sticky!important;top:0!important;inset:auto!important;z-index:100!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#F2F8F8!important;backdrop-filter:none!important;border:0!important;border-bottom:1px solid transparent!important;transition:background-color .2s,border-color .2s}
+:root body header.nav.is-scrolled{background:rgba(255,255,255,.97)!important;border-bottom-color:#D9E6E6!important}
+:root body header.nav .nav-inner{box-sizing:border-box!important;width:100%!important;max-width:calc(1200px + 2*var(--c-gutter))!important;margin:0 auto!important;padding:18px var(--c-gutter)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important}
+:root body header.nav .logo-img{width:148px!important;height:auto!important;min-width:0!important}
+:root body header.nav .nav-links{gap:28px!important}
+:root body header.nav .nav-links>a,:root body header.nav .nav-item>a{padding:6px 0!important;font:500 15px/1.6 "TT Commons Pro","Segoe UI",Arial,sans-serif!important;color:#040F1D!important;text-decoration:none!important}
+:root body header.nav .nav-links>a:hover,:root body header.nav .nav-item>a:hover,:root body header.nav .nav-links>a.active{color:#0A7D79!important}
+:root body header.nav .nav-links>a.nav-cta{margin:0!important;padding:12px 20px!important;background:#013B43!important;color:#FFFFFF!important;border-radius:3px!important;font-weight:600!important}
+:root body header.nav .nav-links>a.nav-cta:hover{background:#040F1D!important;color:#FFFFFF!important}
+:root body header.nav .dropdown{border-radius:12px!important;border-color:#D9E6E6!important}
+/* Footer */
+:root body footer.site{display:block!important;width:100%!important;max-width:none!important;margin:0!important;background:#040F1D!important;color:rgba(255,255,255,.75)!important;padding:clamp(48px,6vw,72px) 0 28px!important;font:400 16px/1.6 "TT Commons Pro","Segoe UI",Arial,sans-serif!important}
+:root body footer.site .container{box-sizing:border-box!important;max-width:calc(1200px + 2*var(--c-gutter))!important;margin:0 auto!important;padding:0 var(--c-gutter)!important}
+:root body footer.site .fcols{display:grid!important;grid-template-columns:2fr repeat(4,minmax(0,1fr))!important;gap:36px!important}
+:root body footer.site .logo-img{width:150px!important;height:auto!important;margin-bottom:20px!important}
+:root body footer.site .tagline{max-width:none!important;margin:0 0 14px!important;font-size:15px!important;line-height:1.65!important;color:rgba(255,255,255,.75)!important}
+:root body footer.site h4{margin:0 0 12px!important;font:500 12px/1.4 "Saira",Arial,sans-serif!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:#11B8B1!important}
+:root body footer.site a{display:block!important;padding:5px 0!important;font-size:15px!important;color:#FFFFFF!important;text-decoration:none!important}
+:root body footer.site a:hover{color:#11B8B1!important}
+:root body footer.site .fine{display:flex!important;flex-wrap:wrap!important;justify-content:space-between!important;gap:10px!important;margin-top:48px!important;padding-top:22px!important;border-top:1px solid rgba(217,230,230,.18)!important;font:400 12px/1.6 "Saira",Arial,sans-serif!important;color:rgba(255,255,255,.72)!important}
+@media(max-width:1000px){:root body footer.site .fcols{grid-template-columns:1fr 1fr!important;gap:28px!important}:root body footer.site .fcols>div:first-child{grid-column:1/-1}}
+@media(max-width:520px){:root body footer.site .fcols{grid-template-columns:1fr!important}}
+/* Headline scale and Saira kickers */
+:root body main h1{font-size:clamp(40px,4vw,56px)!important;line-height:1.05!important;letter-spacing:-.03em!important;font-weight:700!important}
+:root body .hp-kicker,:root body main .eyebrow{display:flex!important;align-items:center;gap:10px;font-family:"Saira",Arial,sans-serif!important;font-weight:500!important;font-size:12px!important;letter-spacing:.16em!important;text-transform:uppercase}
+:root body .hp-kicker::before,:root body main .eyebrow::before{content:"";flex:none;width:7px;height:7px;background:currentColor;transform:rotate(45deg)}
+:root body .center-heading .eyebrow,:root body .center-heading .hp-kicker,:root body .engagement .section-heading .eyebrow{justify-content:center}
+/* No measure caps: text runs to the content edge */
+:root body main p,:root body main h1,:root body main h2{max-width:none!important}
+/* Sticky header is in the page flow: no oversized top padding */
+:root body .cc-intro,:root body .ar-hero,:root body .bf-layout{padding-top:clamp(48px,5vw,72px)!important}
+/* Rounded card scale (matches Resources): panels 22, cards 20, frames 16, inner 12 */
+:root body .ins-feature,:root body .faq-shell,:root body .about-purpose,:root body .how-build,:root body .how-ownership{border-radius:22px!important}
+:root body .extension,:root body .res-card,:root body .ins-card,:root body .xc-fit article,:root body .xc-callout,:root body .ct-routes article,:root body .ct-card,:root body .bf-card,:root body .cl-layout fieldset,:root body .cl-results,:root body .cs-card,:root body .ar-related>div>a,:root body .about-cc,:root body .about-art,:root body .about-product-map,:root body .about-values article,:root body .how-launch-grid article,:root body .faq-illustration,:root body .cs-summary{border-radius:20px!important}
+:root body .ct-routes article,:root body .ct-card,:root body .bf-card,:root body .cl-results{border:1px solid #D9E6E6!important}
+:root body .cs-card,:root body .ins-card,:root body .about-cc,:root body .xc-table{overflow:hidden}
+:root body .visual,:root body .faq-answers,:root body .fg-card,:root body .ar-answer,:root body .ar-diagram img,:root body .xc-table,:root body .how-hero img,:root body .how-row img,:root body .ins-feature-image img,:root body .article-cover img,:root body .res-hero>img,:root body .res-art img{border-radius:16px!important}
+:root body .cs-notice,:root body .cs-pending,:root body .cs-pend,:root body .bf-preview,:root body .ct-preview,:root body .xc-note,:root body .about-product-map a,:root body .voice-note,:root body .ins-resources,:root body .cs-logo-plate,:root body .csh-logo{border-radius:12px!important}
+:root body .ins-filters button,:root body .ins-library-head input,:root body .faq-search{border-radius:3px!important}
+/* Path-line divider with one gold seed before the close */
+.path-line{position:relative;height:1px;background:#D9E6E6}
+.path-line::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;background:#0A7D79;transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 0 7px #FFFFFF}
+.path-line.seed::after{background:#F4B528}
+:root body .closing-divider{margin-top:clamp(40px,5vw,64px)!important;margin-bottom:clamp(48px,6vw,80px)!important}
+/* One closing panel: Midnight, 22px corners, feature artwork on the right */
+:root body .closing,:root body .about-close,:root body .res-close,:root body .cc-close>.hp-wrap{position:relative;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;column-gap:48px!important;align-items:center!important;background:#040F1D!important;color:#FFFFFF!important;border-radius:22px!important;padding:clamp(40px,6vw,72px)!important;text-align:left!important;margin-bottom:clamp(56px,7vw,88px)!important;border:0!important}
+:root body .closing>*,:root body .about-close>*,:root body .res-close>*,:root body .cc-close>.hp-wrap>*{grid-column:1;border:0!important;padding-left:0!important}
+:root body .cc-close{background:transparent!important;padding:0!important;border:0!important}
+:root body .closing .eyebrow,:root body .about-close .eyebrow,:root body .res-close .eyebrow,:root body .cc-close .hp-kicker{color:#11B8B1!important}
+:root body .closing h2,:root body .about-close h2,:root body .res-close h2,:root body .cc-close h2{color:#FFFFFF!important}
+:root body .closing em,:root body .about-close em,:root body .res-close em,:root body .cc-close em{color:#11B8B1!important}
+:root body .closing p:not(.eyebrow),:root body .about-close p:not(.eyebrow),:root body .res-close p:not(.eyebrow),:root body .cc-close p:not(.hp-kicker){color:rgba(255,255,255,.75)!important}
+:root body .closing .actions,:root body .about-close .actions,:root body .cc-close .hp-actions{justify-content:flex-start!important;margin-top:28px}
+:root body .closing .button.mint,:root body .about-close .button.mint,:root body .res-close .button.mint,:root body .cc-close .hp-button-dark{background:#11B8B1!important;color:#040F1D!important;border-color:#11B8B1!important}
+:root body .cc-close .hp-button-dark::before{background:#040F1D!important}
+:root body .closing .button.outline,:root body .about-close .button.outline,:root body .cc-close .hp-button-glass{background:transparent!important;color:#FFFFFF!important;border:1px solid rgba(217,230,230,.45)!important}
+:root body .closing-cone,:root body .cc-close-cone,:root body .cs-reveal{grid-column:2!important;grid-row:1/span 5!important;justify-self:end;margin:0!important}
+:root body .closing-cone{width:clamp(150px,16vw,230px)!important;height:auto;display:block}
+:root body .cs-reveal{width:clamp(300px,36vw,520px)!important}
+:root body .closing :focus-visible,:root body .about-close :focus-visible,:root body .res-close :focus-visible,:root body .cc-close :focus-visible{outline-color:#11B8B1!important}
+@media(max-width:900px){:root body .closing,:root body .about-close,:root body .res-close,:root body .cc-close>.hp-wrap{grid-template-columns:1fr!important}:root body .closing-cone,:root body .cc-close-cone,:root body .cs-reveal{grid-column:1!important;grid-row:auto!important;order:-1;justify-self:start;margin-bottom:28px!important}:root body .closing-cone{width:110px!important}:root body .cc-close-cone{width:120px!important}:root body .cs-reveal{width:min(100%,320px)!important}}
+:root body .closing .button::before,:root body .cc-close .hp-button::before{display:none!important}
+/* Every page opens on the same Pale band as the header */
+:root body .bf-intro,:root body .cc-intro,:root body .ar-hero,:root body .res-hero,:root body .ins-intro,:root body .faq-hero,:root body .about-hero,:root body .how-hero{background:#F2F8F8!important;box-shadow:0 0 0 100vmax #F2F8F8;clip-path:inset(0 -100vmax);padding-bottom:clamp(48px,5vw,72px)!important;margin-bottom:clamp(40px,5vw,64px)!important}
+:root body .closing,:root body .about-close,:root body .res-close,:root body .cc-close>.hp-wrap{row-gap:0!important}:root body .res-close>div+div{margin-top:24px!important}:root body .res-close>div>p:not(.eyebrow){margin-bottom:0!important}:root body .res-close .button{margin-top:28px}:root body .about-close{grid-template-columns:auto minmax(0,1fr) auto!important;column-gap:clamp(28px,4vw,56px)!important;padding:clamp(32px,4vw,48px) clamp(28px,4.5vw,64px)!important}:root body .about-close>.closing-cone{grid-column:1!important;grid-row:1!important;width:clamp(84px,8vw,112px)!important;justify-self:start;align-self:center}:root body .about-close>div:not(.actions){grid-column:2!important;grid-row:1}:root body .about-close>.actions{grid-column:3!important;grid-row:1;margin:0!important;flex-wrap:nowrap;justify-content:flex-end!important}:root body .about-close h2{font-size:clamp(28px,2.8vw,40px)!important;line-height:1.1!important}:root body .about-close .eyebrow{margin-bottom:14px!important}@media(max-width:1000px){:root body .about-close{grid-template-columns:auto minmax(0,1fr)!important;row-gap:24px!important}:root body .about-close>.actions{grid-column:2!important;grid-row:2;justify-content:flex-start!important;flex-wrap:wrap}}@media(max-width:600px){:root body .about-close{grid-template-columns:1fr!important}:root body .about-close>.closing-cone{width:84px!important;margin-bottom:4px!important}:root body .about-close>div:not(.actions),:root body .about-close>.actions{grid-column:1!important;grid-row:auto}}
