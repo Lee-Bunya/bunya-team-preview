@@ -1,0 +1,1 @@
+(()=>{const el=document.querySelector('.cs-reveal');if(!el||matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;document.documentElement.classList.add('js-csrev');const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){el.classList.add('play');io.disconnect()}},{threshold:.5});io.observe(el)})();
