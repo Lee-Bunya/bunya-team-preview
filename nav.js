@@ -1,12 +1,12 @@
 /* Single-source site navigation for the Bunya website.
  * Edit the nav ONCE here and every page updates.
- * Each page only needs, in <head>:   <script src="nav.js" defer></script>
+ * Each page only needs, in <head>:   <script src="nav.js" defer><\/script>
  * and, where the nav should appear:  <div id="site-nav"></div>
  */
 (function () {
   var HEADER = `<header class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="assets/brand/bunya-primary.svg" alt="Bunya" class="logo-img"></a>
+    <a href="index.html" class="logo"><img src="assets/dana/media/20f23820f8d1a4be.svg" alt="Bunya" class="logo-img"></a>
     <button class="menu-btn" aria-label="Open menu" aria-controls="mMenu" aria-expanded="false" onclick="openMenu()">&#8801;</button>
     <nav class="nav-links">
       <a href="index.html">Home</a>
@@ -21,7 +21,7 @@
       <a href="how-it-works.html">How it works</a>
       <div class="nav-item">
         <a role="button" tabindex="0" aria-label="Resources menu">Resources <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="dropdown"><a href="resources.html" class="dd-link"><span class="t">Resource library</span><span class="d">Explore all resources</span></a><a href="blog.html" class="dd-link"><span class="t">Insights</span><span class="d">Practical guides and articles</span></a><a href="resources.html#comparisons" class="dd-link"><span class="t">Comparisons</span><span class="d">Evaluate software approaches</span></a><a href="resources.html#tools" class="dd-link"><span class="t">Tools & calculators</span><span class="d">Explore costs and team capacity</span></a><a href="faq.html" class="dd-link"><span class="t">FAQs</span><span class="d">Answers to your questions</span></a></div>
+        <div class="dropdown"><a href="resources.html" class="dd-link"><span class="t">Resource library</span><span class="d">Explore all resources</span></a><a href="blog.html" class="dd-link"><span class="t">Insights</span><span class="d">Articles for review</span></a><a href="resources.html#comparisons" class="dd-link"><span class="t">Comparisons</span><span class="d">Compare software approaches</span></a><a href="case-studies.html" class="dd-link"><span class="t">Case studies</span><span class="d">Draft client stories</span></a><a href="resources.html#tools" class="dd-link"><span class="t">Tools & calculators</span><span class="d">Explore costs and team capacity</span></a><a href="faq.html" class="dd-link"><span class="t">FAQs</span><span class="d">Answers to your questions</span></a></div>
       </div>
       <a href="about.html">About</a>
       <a href="booking.html" class="nav-cta">Book a Demo &#8594;</a>
@@ -29,12 +29,12 @@
   </div>
 </header>`;
   var MOBILE = `<div class="m-overlay" id="mMenu" role="dialog" aria-modal="true" aria-label="Site navigation" inert>
-  <div class="m-top"><a href="index.html" class="logo"><img src="assets/brand/bunya-reversed.svg" alt="Bunya" class="logo-img"></a><button class="m-close" aria-label="Close menu" onclick="closeMenu()">&#10005;</button></div>
+  <div class="m-top"><a href="index.html" class="logo"><img src="assets/dana/media/5490b1fa8be0869f.svg" alt="Bunya" class="logo-img"></a><button class="m-close" aria-label="Close menu" onclick="closeMenu()">&#10005;</button></div>
   <nav class="m-scroll" aria-label="Mobile navigation">
     <a href="index.html" class="m-direct">Home</a>
     <details class="m-group"><summary>Platform</summary><a href="command-centre.html">Command Centre</a><a href="broadcast-hq.html">Broadcast HQ</a><a href="bunya-voice.html">Bunya Voice</a></details>
     <a href="how-it-works.html" class="m-direct">How it works</a>
-    <details class="m-group"><summary>Resources</summary><a href="resources.html">Resource library</a><a href="blog.html">Insights</a><a href="resources.html#comparisons">Comparisons</a><a href="cost-calculator.html">Cost calculator</a><a href="faq.html">FAQs</a></details>
+    <details class="m-group"><summary>Resources</summary><a href="resources.html">Resource library</a><a href="blog.html">Insights</a><a href="resources.html#comparisons">Comparisons</a><a href="case-studies.html">Case studies</a><a href="cost-calculator.html">Cost calculator</a><a href="faq.html">FAQs</a></details>
     <a href="about.html" class="m-direct">About</a><a href="contact.html" class="m-direct">Contact</a>
   </nav>
   <div class="m-cta"><a href="test-drive.html">Test Drive it Yourself</a><a href="booking.html">Book a Demo &#8594;</a></div>

@@ -1,0 +1,190 @@
+{
+  "date": "2026-09-24",
+  "pages": [
+    {
+      "page": "index.html",
+      "template": "01-homepage.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "command-centre.html",
+      "template": "02-command-centre.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "broadcast-hq.html",
+      "template": "03-broadcast-hq.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "bunya-voice.html",
+      "template": "04-bunya-voice.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "resources.html",
+      "template": "05-resources.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "blog.html",
+      "template": "06-insights-listing.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "blog-practice-operating-system.html",
+      "template": "07-article.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "xplan-alternative.html",
+      "template": "08-comparison.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "faq.html",
+      "template": "09-faq.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "about.html",
+      "template": "10-about (2).html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "how-it-works.html",
+      "template": "11-how-it-works.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "contact.html",
+      "template": "12-contact.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "booking.html",
+      "template": "13-demo-form.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "test-drive.html",
+      "template": "14-test-drive-form.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "cost-calculator.html",
+      "template": "15-calculator.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "case-studies.html",
+      "template": "16-case-studies.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "case-study-falcon.html",
+      "template": "17-case-study.html",
+      "mode": "Dana original"
+    },
+    {
+      "page": "advice-software-alternatives.html",
+      "template": "08-comparison.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-advice-software-cost.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-ai-meeting-notes.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-audit-ready.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-build-vs-buy.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-crm-data-migration.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-fee-for-service.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-grow-without-hiring.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-one-click-soa.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-social-media-approval.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-software-rollout.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-stop-reviews-slipping.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "blog-teams-phone.html",
+      "template": "07-article.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "case-study-regional-prosperity.html",
+      "template": "17-case-study.html",
+      "mode": "adapted; draft facts retained"
+    },
+    {
+      "page": "claude-for-financial-advisors-vs-bunya.html",
+      "template": "08-comparison.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "fin365-alternative.html",
+      "template": "08-comparison.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "free-check.html",
+      "template": "13-demo-form.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "grow.html",
+      "template": "08-comparison.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "vs-ai-plugin.html",
+      "template": "08-comparison.html",
+      "mode": "adapted with existing page content"
+    },
+    {
+      "page": "vs-traditional-crm.html",
+      "template": "08-comparison.html",
+      "mode": "adapted with existing page content"
+    }
+  ]
+}
