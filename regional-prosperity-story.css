@@ -20,3 +20,13 @@
 .rp-story-page .rp-source h2{font-size:22px}.rp-source p{font-size:15px;line-height:1.6;margin-top:14px;color:#526b70}
 @media(max-width:1000px){.rp-story-page .cs-layout{grid-template-columns:1fr;gap:36px}.rp-story-page .cs-body{max-width:none}}
 @media(max-width:760px){.rp-story-page .csh-grid{grid-template-columns:1fr}.rp-story-page .csh-logo{max-width:320px}.rp-workflow{grid-template-columns:1fr}.rp-quote{padding-left:18px}.rp-quote blockquote{font-size:23px}.rp-quote-feature{padding:26px}.rp-quote-feature blockquote{font-size:27px}.rp-overview h2{font-size:28px}}
+
+/* Supplied event photograph, displayed with CSS framing; original is available on click. */
+.rp-story-page .csh-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}
+.rp-award-photo{margin:0;min-width:0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 18px 50px #001b2433}
+.rp-award-photo>a{display:block}.rp-award-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 70%}
+.rp-award-photo figcaption{padding:20px 24px;color:#426467;font-size:14px;line-height:1.4}
+.rp-award-photo figcaption span{display:block;color:#087671;font-size:11px;font-weight:700;letter-spacing:.14em;margin-bottom:8px}
+.rp-award-photo figcaption strong{display:block;color:#013b43;font-size:23px;line-height:1.15;margin-bottom:8px}
+.rp-client-logo{display:block;width:170px;height:auto;max-height:100px;object-fit:contain;margin-bottom:24px}
+@media(max-width:760px){.rp-story-page .csh-grid{grid-template-columns:1fr;gap:32px}.rp-award-photo figcaption{padding:18px}.rp-award-photo figcaption strong{font-size:21px}}
