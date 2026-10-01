@@ -30,3 +30,12 @@
 .rp-award-photo figcaption strong{display:block;color:#013b43;font-size:23px;line-height:1.15;margin-bottom:8px}
 .rp-client-logo{display:block;width:170px;height:auto;max-height:100px;object-fit:contain;margin-bottom:24px}
 @media(max-width:760px){.rp-story-page .csh-grid{grid-template-columns:1fr;gap:32px}.rp-award-photo figcaption{padding:18px}.rp-award-photo figcaption strong{font-size:21px}}
+
+/* Genuine team photo stays uncropped so every person remains visible. */
+.rp-team-photo{margin:0;min-width:0;border-radius:18px;overflow:hidden;box-shadow:0 18px 50px #001b2433;background:#fff}
+.rp-team-photo>a{display:block}.rp-team-photo img{display:block;width:100%;height:auto}
+.rp-team-photo figcaption{padding:17px 22px;font-size:15px;line-height:1.45;color:#426467}
+.rp-award-inline{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;margin:28px 0 32px;background:#f2f8f8;border:1px solid #d9e6e6;box-shadow:none}
+.rp-award-inline>a{align-self:stretch}.rp-award-inline img{height:100%;min-height:240px;object-fit:cover;object-position:50% 70%}
+.rp-award-inline figcaption strong{font-size:22px}
+@media(max-width:760px){.rp-award-inline{grid-template-columns:1fr}.rp-award-inline img{height:auto;min-height:0}.rp-team-photo figcaption{padding:16px 18px}}
