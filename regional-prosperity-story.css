@@ -39,3 +39,9 @@
 .rp-award-inline>a{align-self:stretch}.rp-award-inline img{height:100%;min-height:240px;object-fit:cover;object-position:50% 70%}
 .rp-award-inline figcaption strong{font-size:22px}
 @media(max-width:760px){.rp-award-inline{grid-template-columns:1fr}.rp-award-inline img{height:auto;min-height:0}.rp-team-photo figcaption{padding:16px 18px}}
+
+/* Official RP portrait accompanies Kane’s own words; keep the original photograph intact. */
+.rp-quote-feature .rp-quote-person{display:grid;grid-template-columns:88px minmax(0,1fr);align-items:center;gap:20px;margin-top:24px}
+.rp-quote-person img{display:block;width:88px;height:auto;border-radius:12px}
+.rp-quote-person strong{display:inline-block;color:#fff;font-size:18px;margin-bottom:3px}
+@media(max-width:520px){.rp-quote-feature .rp-quote-person{grid-template-columns:72px minmax(0,1fr);gap:16px;font-size:14px}.rp-quote-person img{width:72px}.rp-quote-person strong{font-size:17px}}
