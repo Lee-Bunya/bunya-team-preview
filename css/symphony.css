@@ -1,0 +1,333 @@
+/* =====================================================================
+   Bunya site · Symphony-inspired design system (8 Oct 2026)
+   Shared by every page with <body class="sym …">. Loads LAST, after
+   dana-base / dana-framed / page CSS / site.css, and re-skins Dana's
+   components (frames, cards, tabs, closing, statement, questions…)
+   in the new language: bold + light TT Commons Pro headlines, Saira
+   module labels, 6px buttons, soft panels, one Signal per frame. Homepage-only parts live in
+   pages/home-symphony.css.
+   ===================================================================== */
+.sym{
+  --canvas:#F2F5F4; --ink:#040F1D; --deep:#013B43; --grid:#0A7D79; --pulse:#11B8B1;
+  --soft:#CFE6E3; --mist:#E2ECEA; --signal:#F4B528; --line:rgba(4,15,29,.1);
+  /* Brand guide: two typefaces only. The former serif line now uses TT Commons Pro (weight contrast). */
+  --serif:var(--font);
+  --settle:cubic-bezier(.2,1.35,.35,1);
+  /* Brand guide, met in the middle: 6px buttons and cards, 12px feature panels; chips stay rounded. */
+  --r-xl:12px; --r-lg:6px; --r-md:6px;
+  --maxw:1240px;
+  background:var(--canvas);color:#28403F;font-size:18px;
+}
+.sym main{overflow:clip}
+.sym h1,.sym h2,.sym h3{color:var(--ink);font-weight:700;letter-spacing:-.045em;line-height:.98}
+.sym h2{font-size:clamp(40px,5vw,76px)}
+.sym h3{letter-spacing:-.025em;line-height:1.1}
+.sym em{color:inherit}
+.sym .sv{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;font-style:normal}
+.sym .sv.mute{color:#6E7F7E}
+.sym .wrap{width:min(var(--maxw),calc(100% - var(--gutter)*2))}
+
+/* brace labels: {Like this} */
+.brace{font-family:var(--serif);font-size:clamp(24px,2.2vw,32px);line-height:1;color:var(--ink);margin:0 0 18px;letter-spacing:-.01em}
+.brace::before{content:"{"}.brace::after{content:"}"}
+.on-dark .brace,.brace.light{color:#fff}
+
+/* ---------- Buttons: dark pill with an arrow square ---------- */
+.pill{display:inline-flex;align-items:center;gap:14px;min-height:56px;padding:8px 8px 8px 26px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;font-size:17px;line-height:1;border:1px solid var(--ink);transition:transform .2s,background .2s}
+.pill:hover{color:#fff;background:#0b1d33;transform:translateY(-1px)}
+.pill .arw{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--pulse);color:var(--ink);transition:transform .2s}
+.pill:hover .arw{transform:translateX(3px)}
+.arw svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pill.big{min-height:72px;padding-left:34px;font-size:clamp(20px,2vw,26px);gap:22px}
+.pill.big .arw{width:54px;height:54px;border-radius:16px}
+.pill.ghost{background:transparent;color:var(--ink);border-color:rgba(4,15,29,.28);padding:8px 22px}
+.pill.ghost:hover{background:#fff;color:var(--ink)}
+.pill.small{min-height:46px;font-size:15px;padding:6px 20px}
+.on-dark .pill.ghost{color:#fff;border-color:rgba(255,255,255,.35)}
+.on-dark .pill.ghost:hover{background:rgba(255,255,255,.08);color:#fff}
+.sym .text-link{color:var(--ink);font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px}
+.sym .text-link:hover{color:var(--grid)}
+
+/* ---------- Floating pill navigation (restyles the approved mega-menu) ---------- */
+.sym #site-nav{top:12px;padding:0 12px;margin-top:12px}
+.sym header.nav{background:transparent;border:0;backdrop-filter:none}
+.sym .nav-inner{width:min(1120px,100%);padding:7px 7px 7px 22px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border:1px solid rgba(4,15,29,.07);box-shadow:0 8px 30px -12px rgba(4,15,29,.18)!important}
+.sym .nav .logo-img{width:128px}
+.sym .nav-links>.nav-trigger,.sym .nav-links>a:not(.nav-cta){border-bottom:0;border-radius:999px;padding:10px 14px;font-size:15px}
+.sym .nav-links>.nav-trigger:hover,.sym .nav-links>a:not(.nav-cta):hover,.sym .nav-trigger[aria-expanded="true"],.sym .nav-links>.active{background:rgba(4,15,29,.06);color:var(--ink)}
+.sym .nav-links .nav-cta,.sym header.nav .nav-cta{background:var(--ink);border-radius:999px;padding:12px 20px!important}
+.sym .nav-links .nav-cta:hover{background:#0b1d33}
+.sym .mega{left:50%;right:auto;top:calc(100% + 10px);width:min(1120px,calc(100vw - 24px));transform:translate(-50%,-6px);border:1px solid rgba(4,15,29,.07);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 60px -24px rgba(4,15,29,.3)!important}
+.sym .mega.open{transform:translate(-50%,0)}
+.sym .mega-body,.sym .mega-foot>div{width:auto;padding-inline:32px}
+.sym .mega-feature{border-radius:var(--r-md)}
+.sym .menu-btn{border-radius:999px}
+@media(max-width:1060px){.sym .nav-inner{padding:8px 8px 8px 18px}}
+
+/* ---------- Scroll reveal ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* ---------- Photo placeholders (to generate in Higgsfield, see SYMPHONY-IMAGE-BRIEF.md) ---------- */
+.ph{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#E9F4F2 0%,#BFDDD9 45%,#8CC4BE 100%);color:var(--deep)}
+.ph::before{content:"";position:absolute;left:50%;top:44%;width:34%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.55);transform:translate(-50%,-60%);box-shadow:0 0 0 0 transparent}
+.ph::after{content:"";position:absolute;left:50%;bottom:-18%;width:70%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.45);transform:translateX(-50%)}
+.ph > b{position:absolute;left:50%;bottom:10%;transform:translateX(-50%);z-index:1;white-space:nowrap;font:600 10px/1 var(--process);letter-spacing:.12em;text-transform:uppercase;background:#fff;padding:6px 9px;border-radius:999px;color:var(--grid)}
+.hide-notes .ph > b{display:none}
+
+.device{position:relative;z-index:2;width:min(980px,calc(100% - var(--gutter)*2));margin:auto;border-radius:var(--r-lg);background:#fff;padding:10px;box-shadow:0 50px 90px -40px rgba(4,15,29,.45),0 0 0 1px rgba(4,15,29,.06);text-align:left}
+.device-bar{display:flex;align-items:center;gap:7px;padding:4px 8px 12px}
+.device-bar i{width:10px;height:10px;border-radius:50%;background:var(--mist)}
+.device-bar span{margin-left:12px;font:600 11px/1 var(--process);letter-spacing:.1em;text-transform:uppercase;color:var(--grid)}
+.device-bar span:last-child{margin-left:auto;color:#8A9A99}
+.sym .device .screen{height:clamp(300px,42vw,560px);border-radius:14px;border:1px solid var(--line)}
+.s-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap;margin-bottom:clamp(36px,4vw,56px)}
+.s-head h2{max-width:14ch}
+.s-head h2 .sv{display:block}
+.s-head p{max-width:40ch;color:#3E5655}
+/* ---------- 9 · FAQ (numbered) ---------- */
+.s-faq{padding:clamp(80px,9vw,140px) 0;background:#fff}
+.s-faq .s-head{align-items:flex-end}
+.faq-list{border-top:1px solid rgba(4,15,29,.2)}
+.faq-list details{border-bottom:1px solid rgba(4,15,29,.2)}
+.faq-list summary{display:grid;grid-template-columns:clamp(60px,14vw,220px) 1fr 32px;align-items:center;gap:16px;padding:26px 0;cursor:pointer;list-style:none}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list .n{font-size:clamp(18px,1.6vw,22px);font-weight:600;color:var(--ink)}
+.faq-list .q{font-size:clamp(20px,1.9vw,28px);font-weight:600;letter-spacing:-.025em;color:var(--ink);line-height:1.2}
+.faq-list .pm{width:22px;height:22px;position:relative;justify-self:end}
+.faq-list .pm::before,.faq-list .pm::after{content:"";position:absolute;left:50%;top:50%;width:20px;height:1.6px;background:var(--ink);transform:translate(-50%,-50%);transition:transform .3s}
+.faq-list .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-list details[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.faq-list summary:hover .q{color:var(--grid)}
+.faq-list .a{padding:0 48px 28px calc(clamp(60px,14vw,220px) + 16px);max-width:calc(clamp(60px,14vw,220px) + 16px + 70ch);font-size:17px;line-height:1.6;color:#3E5655}
+.faq-list .a a{color:var(--grid);font-weight:600}
+.faq-more{margin-top:32px;text-align:center}
+@media(max-width:640px){.faq-list summary{grid-template-columns:40px 1fr 24px}.faq-list .a{padding:0 0 24px 56px}}
+
+/* ---------- 10 · Closing: giant stacked words ---------- */
+.s-close{position:relative;padding:clamp(90px,10vw,150px) 0 clamp(80px,9vw,130px);text-align:center;overflow:hidden;background:var(--canvas)}
+.s-close::before{content:"";position:absolute;inset:-40%;background:repeating-radial-gradient(circle at 50% 60%,transparent 0 22px,rgba(1,59,67,.06) 22px 23px);pointer-events:none}
+.giant{position:relative;font-size:clamp(56px,10.5vw,170px);line-height:.9;font-weight:700;letter-spacing:-.06em;color:var(--ink);margin:0}
+.giant>span{display:block}
+.giant .sv{font-weight:400;letter-spacing:-.03em}
+.giant .mk{display:inline-grid;place-items:center;width:.82em;height:.82em;border-radius:24%;background:var(--pulse);vertical-align:-.08em;margin:0 .08em}
+.giant .mk img{width:64%}
+.floaty{position:absolute;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-weight:700;font-size:clamp(14px,1.3vw,18px);animation:bob 5s ease-in-out infinite;box-shadow:0 14px 30px -14px rgba(4,15,29,.35)}
+.floaty.f1{left:8%;top:44%;background:var(--signal);color:var(--ink)}
+.floaty.f2{right:7%;top:20%;background:var(--pulse);color:var(--ink);animation-delay:-2s}
+.floaty.f3{right:12%;top:62%;background:#fff;color:var(--ink);animation-delay:-3.5s}
+.floaty.f4{left:13%;top:16%;background:var(--ink);color:#fff;animation-delay:-1s}
+.floaty.f2::before{content:"✓";font-size:.9em}
+.s-close .ph.f5{position:absolute;width:clamp(56px,7vw,96px);aspect-ratio:1;border-radius:50%;left:24%;top:70%;z-index:2;animation:bob 6s ease-in-out infinite;animation-delay:-2.5s;border:5px solid var(--canvas)}
+.s-close .ph.f5 > b{display:none}
+.s-close .ctas{position:relative;z-index:3;margin-top:clamp(36px,4vw,56px);display:flex;justify-content:center;flex-wrap:wrap;gap:16px;align-items:center}
+.s-close .fine{position:relative;margin-top:20px;font-size:15px;color:#6E7F7E}
+@media(max-width:760px){.floaty.f1,.floaty.f3,.floaty.f4,.s-close .ph.f5{display:none}.floaty.f2{right:4%;top:4%}.giant{font-size:15vw}}
+
+/* rounded footer card */
+.sym footer.site{margin:0 12px 12px;border-radius:var(--r-xl)}
+
+/* ---------- Keyframes ---------- */
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+@keyframes blink{50%{opacity:.3}}
+/* ---------- Generated photos (replace the placeholder art) ---------- */
+.ph.has-img{background:var(--soft)}
+.ph.has-img::before,.ph.has-img::after{display:none}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+
+/* =====================================================================
+   BRIDGE · Dana's shared components in the Symphony language.
+   Pages keep their markup; these rules re-skin it. dana-framed.css
+   removes every shadow with !important, so the few shadows we want
+   are marked !important here too.
+   ===================================================================== */
+.sym .lead,.sym .section-heading>p,.sym .center-heading>p:last-child{color:#3E5655}
+
+/* ---------- Headlines: the <em> line becomes the serif line ---------- */
+.sym h1{font-size:clamp(44px,5.4vw,84px);line-height:.98}
+.sym h1 em,.sym h2 em,.sym .center-heading h2 span,.sym .intro h2>span{font-family:var(--serif);font-weight:400;font-style:normal;font-size:1.06em;letter-spacing:-.02em;color:var(--ink)}
+
+/* ---------- Eyebrows become {brace labels}; small labels inside cards stay compact ---------- */
+.sym .eyebrow{font-family:var(--serif);font-weight:400;font-size:clamp(22px,1.9vw,28px);line-height:1.1;letter-spacing:-.01em;text-transform:none;color:var(--ink);margin-bottom:18px}
+.sym .eyebrow::before{content:"{"}.sym .eyebrow::after{content:"}"}
+.sym :is(article,li,.extension,.frame,.feature-copy,.cc-roles,.ins-copy,.across-line,.wf-card,.bf-card,.cs-card,.mega,.product-copy,.sol-place,.sol-status) .eyebrow{font-family:var(--process);font-weight:600;font-size:11px;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--grid);margin-bottom:10px}
+.sym :is(article,li,.extension,.frame,.feature-copy,.cc-roles,.ins-copy,.across-line,.wf-card,.bf-card,.cs-card,.mega,.product-copy,.sol-place,.sol-status) .eyebrow::before,
+.sym :is(article,li,.extension,.frame,.feature-copy,.cc-roles,.ins-copy,.across-line,.wf-card,.bf-card,.cs-card,.mega,.product-copy,.sol-place,.sol-status) .eyebrow::after{content:none}
+
+/* ---------- Buttons become pills; the primary one gets the arrow square ---------- */
+.sym .button{border-radius:999px;min-height:54px;padding:8px 24px;gap:14px;font-size:16px;font-weight:600;background:var(--ink);border-color:var(--ink);color:#fff;transition:transform .2s,background .2s,border-color .2s}
+.sym .button:hover{background:#0b1d33;border-color:#0b1d33;color:#fff;transform:translateY(-1px)}
+.sym .button.mint{background:var(--ink);border-color:var(--ink);color:#fff;padding-right:7px}
+.sym .button.mint::after{content:"";flex:none;width:40px;height:40px;border-radius:12px;background:var(--pulse) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23040F1D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/20px no-repeat;transition:transform .2s}
+.sym .button.mint:hover::after{transform:translateX(3px)}
+.sym .button.outline{background:transparent;color:var(--ink);border-color:rgba(4,15,29,.28)}
+.sym .button.outline:hover{background:#fff;color:var(--ink);border-color:rgba(4,15,29,.28)}
+.sym :is(.closing,.ownership,.res-close,.about-close,.on-dark) .button.mint{background:#fff;border-color:#fff;color:var(--ink)}
+.sym :is(.closing,.ownership,.res-close,.about-close,.on-dark) .button.mint:hover{background:#fff;color:var(--ink)}
+.sym :is(.closing,.ownership,.res-close,.about-close,.on-dark) .button.outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.sym :is(.closing,.ownership,.res-close,.about-close,.on-dark) .button.outline:hover{background:rgba(255,255,255,.1);color:#fff}
+.sym :is(.closing,.ownership,.on-dark) .text-link{color:#fff}
+.sym .actions{gap:12px 14px;align-items:center}
+
+/* ---------- Breaks: whitespace and colour blocks instead of hairlines ---------- */
+.sym .pathline{display:none}
+.sym .section-pale,.sym .showcase,.sym .products,.sym .insights{background:#E7EEEC;border:0}
+.sym .section-heading{align-items:flex-end;gap:24px 48px}
+.sym .section-heading>p{border-left:0!important;padding-left:0!important}
+
+/* ---------- Heroes: open canvas, no grid texture ---------- */
+.sym .hero{background:transparent;border-bottom:0}
+.sym .hero::before{display:none}
+.sym .hero-note{color:var(--grid)}
+.sym .breadcrumb{display:inline-flex;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:11px}
+
+/* ---------- Frames become devices: rounded, soft shadow, dotted title bar ---------- */
+.sym :is(.frame,.hero-product){border:0;outline:0;border-radius:var(--r-lg);background:#fff;padding:8px;box-shadow:0 40px 80px -42px rgba(4,15,29,.45),0 0 0 1px rgba(4,15,29,.06)!important}
+.sym :is(.frame,.hero-product)::after{display:none}
+.sym :is(.frame-bar,.product-top){background:transparent;color:var(--grid);border:0;border-radius:0;padding:6px 8px 12px;font:600 11px/1.2 var(--process);letter-spacing:.1em;text-transform:uppercase}
+.sym :is(.frame-bar,.product-top)>span:first-child::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--mist);transform:none;margin-right:54px;vertical-align:-1px;box-shadow:16px 0 0 var(--mist),32px 0 0 var(--mist)!important}
+.sym :is(.frame-bar,.product-top)>span:last-child{color:#8A9A99}
+.sym .product-top .live-dot{display:none}
+.sym :is(.frame .screen,.hero-window,.feature-screen .screen){border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.sym .product-caption{background:transparent;border:0;padding:12px 8px 4px;color:var(--grid)}
+.sym .product-caption span::before{border-radius:50%;transform:none}
+.sym :is(.feature-screen,.image-frame,.ext-frame,.conversation-art,.note-card,.voice-note){border:0;border-radius:var(--r-lg)}
+.sym .ext-frame{border-radius:var(--r-md);box-shadow:0 24px 40px -28px rgba(4,15,29,.45)!important}
+
+/* ---------- Cards: rounded white tiles that lift on hover ---------- */
+.sym .card-grid{gap:12px;padding:0}
+.sym :is(.card-grid>article,.benefits article,.approach-grid article,.ins-card,.delivery-grid article,.extension){border:0;outline:0;border-radius:var(--r-lg);background:#fff;transition:transform .25s,box-shadow .25s}
+.sym .card-grid>article{padding:30px 28px 32px}
+.sym .card-grid h3{font-size:clamp(22px,1.8vw,26px)}
+.sym .card-grid p{color:#3E5655}
+.sym :is(.card-grid>article,.ins-card,.extension):hover{transform:translateY(-3px);box-shadow:0 28px 44px -30px rgba(1,59,67,.5)!important}
+.sym .delivery-grid{gap:12px}
+.sym .delivery-grid article{padding:28px 28px 32px}
+.sym .delivery-grid article:nth-child(1){background:var(--soft)}
+.sym .delivery-grid article:nth-child(3){background:var(--deep);color:rgba(255,255,255,.8)}
+.sym .delivery-grid article:nth-child(3) h3{color:#fff}
+.sym .delivery-grid article:nth-child(3)>span{color:var(--pulse)}
+.sym .delivery-grid article:nth-child(3) p{color:rgba(255,255,255,.8)}
+.sym .extensions{gap:12px}
+.sym .extension{padding:clamp(28px,3vw,40px)}
+
+/* ---------- Tabs become a pill switcher ---------- */
+.sym .tabs{gap:6px;border:0;margin-top:36px;padding:6px;background:#fff;border-radius:999px;width:max-content;max-width:100%}
+.sym .tabs button{border:0;margin:0;padding:11px 18px;border-radius:999px;font-weight:600;font-size:15px;color:#3E5655}
+.sym .tabs button:hover{color:var(--ink);background:var(--canvas)}
+.sym .tabs button[aria-selected=true]{background:var(--ink);color:#fff;font-weight:600}
+.sym .feature-points li::before{border-radius:50%;transform:none}
+.sym .mobile-feature-nav select,.sym .mobile-feature-actions button{border-radius:999px}
+
+/* ---------- Chips: who acts, the human gate, tool lists ---------- */
+.sym .who{padding:6px 12px 6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:11px}
+.sym .who::before{border-radius:50%;transform:none}
+.sym .gate{border:1px solid var(--signal)!important;background:#FFF8E6;border-radius:var(--r-md)}
+.sym .chip-list li{border-radius:999px;padding:8px 14px}
+.sym .review-pill{border-radius:999px}
+
+/* ---------- Journey strip, stages, across-line ---------- */
+.sym .journey-strip{gap:10px;border:0;background:transparent}
+.sym .journey-strip a{background:#fff;border:0!important;border-radius:var(--r-md);padding:22px 22px 24px;transition:transform .2s,box-shadow .2s}
+.sym .journey-strip a:hover{background:#fff;transform:translateY(-3px);box-shadow:0 24px 40px -30px rgba(1,59,67,.5)!important}
+.sym .across-line{border:0;border-radius:999px;background:#fff;padding:16px 26px}
+.sym .stages{border-top:0;gap:10px}
+.sym .stage{background:#fff;border:0;border-radius:var(--r-lg);padding:26px 28px}
+.sym .trail li{border-color:var(--line)}
+
+/* ---------- Statement: the serif quote ---------- */
+.sym .statement{border:0;padding:clamp(80px,9vw,140px) 0}
+.sym .statement-side{border-top:0;padding-top:0}
+.sym .statement-text{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,54px);line-height:1.1;letter-spacing:-.015em;color:var(--ink)}
+.sym .statement-text em{font-family:var(--font);font-weight:700;letter-spacing:-.045em;color:var(--ink)}
+.sym .statement-index{border-top:0;gap:12px}
+.sym .statement-index li{border:0;margin:0;padding:20px;border-radius:var(--r-md);background:#fff}
+
+/* ---------- Product questions: numbered list ---------- */
+.sym .product-questions{border-top:0;counter-reset:pq}
+.sym .product-questions details{border-top:1px solid rgba(4,15,29,.2);counter-increment:pq}
+.sym .product-questions details:last-of-type{border-bottom:1px solid rgba(4,15,29,.2)}
+.sym .product-questions summary{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:24px 48px 24px 0;font-size:clamp(19px,1.6vw,23px);letter-spacing:-.02em;line-height:1.25}
+.sym .product-questions summary::before{content:counter(pq,decimal-leading-zero);font-size:.8em;font-weight:600;color:#8A9A99;padding-top:.15em}
+.sym .product-questions summary::after{top:50%;transform:translateY(-50%);font-size:30px;font-weight:300;color:var(--ink)}
+.sym .product-questions summary:hover{color:var(--grid)}
+.sym .product-questions details p{padding-left:68px;color:#3E5655}
+.sym .product-questions>a{display:inline-flex;align-items:center;border:1px solid rgba(4,15,29,.28)!important;border-radius:999px;padding:12px 20px;color:var(--ink)}
+.sym .product-questions>a:hover{background:#fff}
+@media(max-width:640px){.sym .product-questions summary{grid-template-columns:40px 1fr}.sym .product-questions details p{padding-left:52px}}
+
+/* ---------- Ownership band: dark, dotted ---------- */
+.sym .ownership{background:var(--ink)}
+.sym .ownership::before{background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:none;mask-image:none}
+.sym .ownership .eyebrow{color:#fff}
+.sym .ownership h2 em{color:var(--pulse)}
+
+/* ---------- Closing panel: big rounded deep-teal card ---------- */
+.sym .closing-wrap{padding:clamp(40px,5vw,72px) 0 clamp(56px,6vw,96px)}
+.sym .closing{border:0;outline:0;border-radius:var(--r-xl);background:var(--deep);padding:clamp(48px,6vw,96px) clamp(28px,5vw,80px);width:min(var(--maxw),calc(100% - var(--gutter)*2));margin:0 auto;box-shadow:none!important;isolation:isolate}
+.sym .closing::after{display:none}
+.sym .closing::before{content:"";position:absolute;inset:-40%;z-index:-1;background:repeating-radial-gradient(circle at 80% 50%,transparent 0 22px,rgba(255,255,255,.045) 22px 23px);pointer-events:none}
+.sym .closing h2{font-size:clamp(40px,5vw,80px);line-height:.96}
+.sym .closing h2 em{color:var(--pulse)}
+.sym .closing .eyebrow{color:#fff}
+
+/* ---------- Logos ---------- */
+.sym .proof{border:0}
+.sym .logo-row img{filter:grayscale(1);opacity:.75}
+
+/* ---------- Forms: rounded fields ---------- */
+.sym main :is(input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea){border-radius:14px}
+
+/* ---------- Headings on dark panels stay white; long two-column heads sit a size down ---------- */
+.sym :is(.closing,.ownership,.on-dark,.res-close,.about-close,.cc-closing) :is(h1,h2,h3){color:#fff}
+.sym :is(.section-heading,.product-questions,.cc-define-grid,.statement-grid) h2{font-size:clamp(36px,4.2vw,64px)}
+.sym .section-heading>div{flex:1 1 auto;max-width:860px}
+.sym .section-heading>p{flex:0 1 400px}
+
+/* =====================================================================
+   BRAND ALIGNMENT (10 Oct 2026) · Bunya Brand Experience v1.0, loosely
+   - Two typefaces: the second headline line is TT Commons Pro Regular in Grid.
+   - Labels are Saira uppercase with a module diamond (the brand's state marker).
+   - Shapes: 6px buttons and cards, 12px panels; only chips stay rounded.
+   - Motion: things settle once and stop (cubic-bezier(.2,1.35,.35,1)); nothing loops.
+   - Signal gold marks one human decision per frame, never decoration.
+   ===================================================================== */
+.sym .sv{font-weight:400;letter-spacing:-.035em;color:var(--grid)}
+.sym .on-dark .sv,.sym .s-wheel h2 .sv{color:var(--pulse)}
+.sym h1 em,.sym h2 em,.sym .center-heading h2 span,.sym .intro h2>span{font-family:inherit;font-weight:400;font-size:1em;letter-spacing:-.035em;color:var(--grid)}
+.sym :is(.closing,.ownership,.on-dark) :is(h1,h2) em{color:var(--pulse)}
+/* module label: Saira uppercase, a small rotated-square marker */
+.brace,.sym .eyebrow{display:flex;align-items:center;gap:10px;font:600 12px/1.4 var(--process);letter-spacing:.16em;text-transform:uppercase;color:var(--grid);margin:0 0 20px}
+.brace::before,.sym .eyebrow::before{content:"";width:9px;height:9px;flex:none;background:var(--mist);border:1.5px solid var(--grid);transform:rotate(45deg)}
+.brace::after,.sym .eyebrow::after{content:none}
+.center .brace,.s-stage .brace,.s-proofq .brace,.sym .center-heading .eyebrow{justify-content:center}
+.on-dark .brace,.brace.light,.sym :is(.closing,.ownership,.on-dark) .eyebrow{color:var(--pulse)}
+.on-dark .brace::before,.sym :is(.closing,.ownership,.on-dark) .eyebrow::before{background:transparent;border-color:var(--pulse)}
+.sym .statement-text{font-weight:500;letter-spacing:-.025em;line-height:1.2}
+/* shapes */
+.pill,.sym .button{border-radius:6px}
+.pill .arw,.sym .button.mint::after{border-radius:4px}
+.pill.big .arw{border-radius:5px}
+.sym .nav-inner{border-radius:12px}
+.sym .nav-links>.nav-trigger,.sym .nav-links>a:not(.nav-cta),.sym .nav-links .nav-cta,.sym header.nav .nav-cta,.sym .menu-btn{border-radius:6px}
+.device{border-radius:12px}
+.sym .device .screen{border-radius:6px}
+/* motion: settle once, then stillness */
+.rv{transform:translateY(18px);transition:opacity .5s ease,transform .6s var(--settle)}
+.floaty{animation:drop-in .7s var(--settle) both}
+.floaty.f4{animation-delay:.1s}.floaty.f2{animation-delay:.3s}.floaty.f1{animation-delay:.5s}.floaty.f3{animation-delay:.7s}
+.floaty.f1{background:#fff;color:var(--ink)}
+.s-close .ph.f5{animation:drop-in .7s var(--settle) .6s both}
+@keyframes drop-in{from{opacity:0;transform:translateY(-22px) scale(.92)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.floaty,.s-close .ph.f5{animation:none}}
+
+/* Mega menu: an invisible bridge over the gap between the floating bar and the panel, so moving the
+   pointer down into the panel never counts as leaving the menu. */
+.sym .mega::before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px}
+.sym .mega{overflow:visible}
+.sym .mega-body{border-radius:var(--r-lg) var(--r-lg) 0 0}
+.sym .mega-foot{border-radius:0 0 var(--r-lg) var(--r-lg)}

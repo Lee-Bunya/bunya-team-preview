@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "TT Commons Pro";
+  src: url("../assets/52db6cc1ce78.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Commons Pro";
+  src: url("../assets/e427e7bb4a37.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Commons Pro";
+  src: url("../assets/055a1f0d19f7.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Commons Pro";
+  src: url("../assets/84ebf3fc2898.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face{font-family:"Saira";font-style:normal;font-weight:400;font-display:swap;src:url("../assets/93d9873a4340.woff2") format("woff2");}
+@font-face{font-family:"Saira";font-style:normal;font-weight:500;font-display:swap;src:url("../assets/bab77b8176af.woff2") format("woff2");}
+@font-face{font-family:"Saira";font-style:normal;font-weight:600;font-display:swap;src:url("../assets/3e5976f9c4d8.woff2") format("woff2");}

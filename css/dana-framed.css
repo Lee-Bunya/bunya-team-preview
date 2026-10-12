@@ -1,0 +1,208 @@
+/* ======================================================================
+   bunya.ai framed system (shared with 01 Homepage, 2 Oct 2026)
+   Flat, framed system: no drop shadows anywhere. Depth comes from
+   canvas contrast (white ↔ Pale Mist) and crisp white frames with a
+   Mist hairline, like a mounted print. Hero + product screens get the
+   Focus Green label bar; everything else is border and spacing.
+   ====================================================================== */
+:root{--frame-w:8px;--hp-border:1px solid rgba(1,59,67,.22)}
+
+/* kill every shadow from the shared sheet */
+*:not(.eco-hub):not(.hero-product),*::before,*::after{box-shadow:none!important}
+
+/* page breaks: plain Mist hairline */
+.pathline::after,.pathline.seed::after{display:none}
+
+/* the frame: white mount + Mist hairline outside it; reads on Pale Mist canvases */
+.frame,.hero-product,.benefits article,.approach-grid article,.ins-card,.eco-hub,.closing{
+  border:1px solid var(--mist);outline:var(--frame-w) solid #fff;outline-offset:0;background:#fff;border-radius:var(--r-frame)}
+.frame::after,.hero-product::after{content:"";position:absolute;inset:calc(-1*var(--frame-w) - 1px);border:1px solid var(--mist);border-radius:calc(var(--r-frame) + var(--frame-w));pointer-events:none}
+.frame,.hero-product{position:relative;overflow:visible}
+.frame>*,.hero-product>*{position:relative}
+.frame .screen,.hero-window{border-radius:0 0 calc(var(--r-frame) - 1px) calc(var(--r-frame) - 1px);overflow:hidden}
+.frame-bar,.hero .product-top{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--focus);color:#fff;border-radius:calc(var(--r-frame) - 1px) calc(var(--r-frame) - 1px) 0 0;font-family:var(--process);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.frame-bar span:last-child,.hero .product-top>span:last-child{margin-left:auto;color:var(--pulse);font-weight:500;letter-spacing:.08em}
+.frame-bar span:first-child::before,.hero .product-top>span:first-child::before{content:"";display:inline-block;width:7px;height:7px;background:var(--pulse);transform:rotate(45deg);margin-right:10px;vertical-align:1px}
+.hero .product-top .live-dot{display:none}
+.hero .product-caption{background:var(--pale);border-radius:0 0 calc(var(--r-frame) - 1px) calc(var(--r-frame) - 1px)}
+.hero-window{border-radius:0}
+
+/* hero canvas */
+.hero{background:var(--pale)}
+.hero::before{background-image:linear-gradient(45deg,rgba(10,125,121,.08) 1px,transparent 1px),linear-gradient(-45deg,rgba(10,125,121,.08) 1px,transparent 1px)}
+.hero-grid{padding-top:clamp(56px,6vw,96px)}
+.hero-product{margin:var(--frame-w)}
+
+/* logos */
+.proof{display:block;padding:32px 0 30px;border-bottom:var(--hair)}
+.proof>.eyebrow{text-align:center;margin:0 0 22px;color:var(--grid);max-width:none}
+.logo-row{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:28px clamp(48px,7vw,112px);width:min(var(--maxw),calc(100% - var(--gutter)*2));margin:auto}
+.logo-row img{flex:none;height:auto;width:auto;max-height:48px;max-width:180px;object-fit:contain}
+.logo-row img[alt="Falcon Financial"]{max-height:62px;max-width:150px}
+
+/* statement */
+.statement{padding:clamp(64px,8vw,112px) 0 clamp(56px,7vw,96px);border-bottom:var(--hair)}
+.statement .eyebrow{margin-bottom:26px}
+.statement-text{font-size:clamp(24px,2.4vw,34px);line-height:1.35;letter-spacing:-.012em;color:var(--ink);font-weight:500;max-width:30em;text-wrap:pretty}
+.statement .text-link{display:inline-block;margin-top:30px}
+
+/* products: three rows on Pale Mist, alternating sides */
+.products{background:var(--pale);padding:clamp(64px,7vw,96px) 0 clamp(48px,5vw,64px)}
+.products .section-heading>p{max-width:420px;font-size:18px;line-height:1.6;margin-top:36px;padding-left:clamp(0px,3vw,32px);border-left:1px solid var(--grid)}
+.products .section-heading{align-items:start}
+.product-list{display:grid;gap:clamp(40px,5vw,72px);margin-top:clamp(40px,5vw,64px)}
+.product-row{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(28px,5vw,72px);align-items:center}
+.product-row:nth-child(even){grid-template-columns:minmax(0,1.28fr) minmax(0,.72fr)}
+.product-row:nth-child(even) .product-copy{order:2}
+.product-row:nth-child(even) .product-visual{order:1}
+.product-copy h3{font-size:clamp(28px,2.6vw,38px);line-height:1.08;letter-spacing:-.02em;margin:0 0 18px}
+.product-copy h3 em{color:var(--grid)}
+.product-copy p:not(.eyebrow){font-size:17px;color:var(--body);margin-bottom:22px;max-width:44ch}
+.product-visual{min-width:0;padding:var(--frame-w)}
+.product-visual .screen{height:clamp(300px,34vw,460px)}
+.products .scope-note{text-align:left;padding:clamp(28px,3vw,40px) 0 0;max-width:none;font-size:13px}
+
+/* ecosystem: quiet flow, dominant hub */
+.ecosystem-section{padding-top:clamp(56px,7vw,88px)}
+.eco-connections{overflow:visible}
+.eco-connections path{stroke:var(--grid);stroke-width:1;opacity:.28}
+.eco-flow path{stroke:var(--pulse);opacity:.32;stroke-width:1.3;stroke-dasharray:3 14;stroke-linecap:round;animation:ecoFlow 2.4s linear infinite}
+@keyframes ecoFlow{to{stroke-dashoffset:17}}
+.eco-pulses circle{fill:rgba(17,184,177,.8)}
+.eco-canvas:not(.live) .eco-flow path{animation-play-state:paused}
+.eco-hub{background:var(--focus);border-color:var(--focus);outline-color:var(--pale)}
+.eco-icon{border:var(--hp-border);background:#fff}
+.eco-node[href]:hover .eco-icon{border-color:var(--focus);background:var(--pale)}
+@media(prefers-reduced-motion:reduce){.eco-flow,.eco-pulses{display:none}}
+
+/* approach (from About) */
+.approach{padding:clamp(56px,7vw,88px) 0}
+.approach-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:44px}
+.approach-grid article{padding:28px 26px 30px;outline-color:var(--pale);border-color:rgba(1,59,67,.22);background:var(--pale);transition:border-color .2s}
+.approach-grid article:hover{border-color:var(--focus)}
+.approach-grid .step{display:block;font-family:var(--process);font-size:13px;font-weight:600;letter-spacing:.1em;color:var(--grid);border-top:2px solid var(--grid);padding-top:14px;margin-bottom:18px}
+.approach-grid h3{font-size:23px}
+.approach-grid p{font-size:17px;color:var(--body);margin-top:12px}
+
+/* delivery stays as approved; insights row on Pale Mist */
+.insights{background:var(--pale);padding:clamp(56px,7vw,88px) 0}
+.insights .section-heading{align-items:end}
+.insights .section-heading>a{margin-bottom:6px}
+.ins-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(24px + var(--frame-w));margin-top:40px;padding:var(--frame-w)}
+.ins-card{overflow:hidden;display:flex;flex-direction:column;border-color:rgba(1,59,67,.22);transition:border-color .2s}
+.ins-card:hover{border-color:var(--focus)}
+.ins-art{display:block;aspect-ratio:1.85;background:var(--pale);overflow:hidden;border-bottom:var(--hair)}
+.ins-art img{width:100%;height:100%;object-fit:cover;display:block}
+.ins-copy{padding:22px;flex:1;display:flex;flex-direction:column}
+.ins-copy .eyebrow{font-size:11px;margin-bottom:12px}
+.ins-copy h3{font-size:20px;line-height:1.25}
+.ins-copy h3 a:hover{color:var(--grid)}
+.ins-copy>p:not(.eyebrow){font-size:16px;line-height:1.5;color:var(--body);margin:12px 0 20px}
+.ins-copy .text-link{margin-top:auto;font-size:15px}
+
+/* closing: Focus panel inside a white mount on white — the frame is the Mist hairline */
+.closing-wrap{padding:clamp(40px,5vw,64px) 0 clamp(56px,6vw,80px)}
+.closing{background:var(--focus);border-color:var(--focus);outline-color:#fff}
+.closing::after{content:"";position:absolute;inset:calc(-1*var(--frame-w) - 1px);border:1px solid var(--mist);border-radius:calc(var(--r-frame) + var(--frame-w));pointer-events:none}
+.closing{margin:var(--frame-w) auto;width:calc(min(var(--maxw),100% - var(--gutter)*2) - var(--frame-w)*2)}
+.closing-anim .seed-glow{animation:none}
+
+/* ownership dark band unchanged; footer unchanged */
+
+/* responsive */
+@media(max-width:1000px){.product-row,.product-row:nth-child(even){grid-template-columns:1fr;gap:28px}.product-row:nth-child(even) .product-copy{order:1}.product-row:nth-child(even) .product-visual{order:2}.product-visual .screen{height:clamp(300px,52vw,520px)}}
+@media(max-width:760px){
+  :root{--frame-w:6px}
+  .statement-text{font-size:22px}
+  .approach-grid,.ins-grid{grid-template-columns:1fr}
+  .product-visual .screen{height:max(320px,66vw)}
+  .products .section-heading>p{margin-top:18px;padding-left:0;border-left:0}
+  .hero-window{height:max(260px,64vw)}
+}
+@media(max-width:480px){.eco-canvas{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}.eco-node strong{font-size:14px}.eco-detail{font-size:10px}}
+
+/* ---- round 2 refinements ---- */
+:root{--frame-w:4px}
+.frame::after,.hero-product::after,.closing::after{border-color:rgba(217,230,230,.7)}
+.frame,.hero-product,.benefits article,.approach-grid article,.ins-card,.eco-hub,.closing{outline-width:var(--frame-w)}
+@media(max-width:760px){:root{--frame-w:3px}}
+
+/* What is Bunya — editorial statement with a product index */
+.statement-grid{display:grid;grid-template-columns:minmax(0,.32fr) minmax(0,.68fr);gap:clamp(28px,5vw,80px);align-items:start}
+.statement-side{position:sticky;top:96px;display:flex;flex-direction:column;gap:22px;padding-top:6px;border-top:2px solid var(--focus)}
+.statement-side .eyebrow{margin:16px 0 0}
+.statement-side .text-link{margin:0}
+.statement-text{font-size:clamp(26px,2.6vw,38px);line-height:1.3;max-width:none}
+.statement-text em{color:var(--grid);font-weight:600}
+.statement-index{list-style:none;padding:0;margin:clamp(32px,4vw,48px) 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-top:var(--hair)}
+.statement-index li{padding-top:18px;display:grid;gap:6px;border-top:1px solid var(--grid);margin-top:-1px}
+.statement-index span{font-family:var(--process);font-size:12px;font-weight:600;letter-spacing:.12em;color:var(--grid)}
+.statement-index strong{font-size:19px;color:var(--ink);line-height:1.2}
+.statement-index small{font-size:15px;color:var(--body);line-height:1.45}
+@media(max-width:900px){.statement-grid{grid-template-columns:1fr;gap:24px}.statement-side{position:static;flex-direction:row;justify-content:space-between;align-items:center}.statement-index{grid-template-columns:1fr;gap:16px}.statement-index li{border-top:var(--hair)}}
+
+/* Products heading — copy and an index of the three rows fill the right-hand column */
+.products-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:start}
+.products-aside{padding-left:clamp(0px,3vw,32px);border-left:1px solid var(--grid);margin-top:36px}
+.products-aside>p{font-size:18px;line-height:1.6;color:var(--body);max-width:46ch;margin:0}
+.products-nav{display:grid;margin-top:28px;border-top:var(--hair)}
+.products-nav a{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:baseline;gap:14px;padding:14px 0;border-bottom:var(--hair);color:var(--ink)}
+.products-nav a:hover strong{color:var(--grid)}
+.products-nav span{font-family:var(--process);font-size:12px;font-weight:600;letter-spacing:.12em;color:var(--grid)}
+.products-nav strong{font-size:18px;font-weight:600}
+.products-nav em{font-family:var(--process);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--grid);text-align:right}
+.product-row{scroll-margin-top:96px}
+@media(max-width:900px){.products-head{grid-template-columns:1fr}.products-aside{margin-top:18px;padding-left:0;border-left:0}.products-nav a{grid-template-columns:32px minmax(0,1fr)}.products-nav em{grid-column:2;text-align:left}}
+
+/* ---- round 3: product index as a full-width strip ---- */
+.products-head{display:block}
+.products-lead{font-size:clamp(18px,1.5vw,21px);line-height:1.55;color:var(--body);max-width:40em;margin-top:22px}
+.products-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:clamp(32px,4vw,48px) 0 0;border-top:1px solid var(--focus);border-bottom:var(--hair)}
+.products-nav a{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;align-items:baseline;column-gap:14px;row-gap:4px;padding:20px clamp(16px,2vw,28px) 20px 0;border-bottom:0;border-right:var(--hair);color:var(--ink);transition:background .15s}
+.products-nav a+a{padding-left:clamp(16px,2vw,28px)}
+.products-nav a:last-child{border-right:0}
+.products-nav a:hover{background:rgba(255,255,255,.6)}
+.products-nav span{grid-row:1/3;align-self:start;padding-top:4px}
+.products-nav strong{font-size:20px}
+.products-nav em{grid-column:2;grid-row:2;text-align:left}
+.products-nav i{grid-column:3;grid-row:1/3;font-style:normal;color:var(--grid);font-size:18px;align-self:center;transition:transform .2s}
+.products-nav a:hover i{transform:translateY(3px)}
+.product-list{margin-top:clamp(40px,5vw,64px)}
+@media(max-width:760px){.products-nav{grid-template-columns:1fr}.products-nav a{border-right:0;border-bottom:var(--hair);padding:16px 0}.products-nav a+a{padding-left:0}.products-nav a:last-child{border-bottom:0}.products-nav em{grid-column:2}}
+
+/* ecosystem nodes can carry a supplied product icon (PNG/SVG) in place of the line icon */
+.eco-icon img{width:32px;height:32px;object-fit:contain;display:block}
+.eco-icon.ms{background:#fff}
+.eco-icon.ms img{width:36px;height:36px}
+@media(max-width:760px){.eco-icon.ms img{width:30px;height:30px}}
+.eco-icon.bunya img{width:40px;height:40px;object-fit:contain}
+@media(max-width:760px){.eco-icon.bunya img{width:34px;height:34px}}
+
+/* ---- cover card tilt, hub glow ---- */
+.hero-product{transform:perspective(1800px) rotateY(-5deg) rotateX(1.5deg);transform-origin:60% 50%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.hero-grid:hover .hero-product{transform:perspective(1800px) rotateY(-2.5deg) rotateX(.8deg)}
+
+@media(max-width:1000px){.hero-product,.hero-grid:hover .hero-product{transform:none}}
+@media(prefers-reduced-motion:reduce){.hero-product{transition:none}}
+.eco-hub{box-shadow:0 0 0 1px rgba(17,184,177,.35),0 0 32px 2px rgba(17,184,177,.18)}
+
+/* ---- round: tilt the other way, index strip as a white card, bigger Voice screen ---- */
+.hero-product{transform:perspective(1800px) rotateY(8deg) rotateX(1.5deg);transform-origin:40% 50%}
+.hero-grid:hover .hero-product{transform:perspective(1800px) rotateY(4deg) rotateX(.8deg)}
+.products-nav.frame{border-top:1px solid var(--mist);border-bottom:1px solid var(--mist);background:#fff;padding:0 clamp(16px,2vw,28px)}
+.products-nav.frame a{padding-left:clamp(16px,2vw,28px)}
+.products-nav.frame a:hover{background:var(--pale)}
+.products-nav.frame a:first-child{padding-left:0}
+.product-visual .voice-screen{height:clamp(360px,40vw,560px)}
+@media(max-width:1000px){.product-visual .voice-screen{height:clamp(360px,62vw,600px)}}
+@media(max-width:760px){.product-visual .voice-screen{height:max(380px,80vw)}.products-nav.frame{padding:0 16px}.products-nav.frame a{padding-left:0}}
+
+/* ---- flat clockwise angle on the cover card; breathing glow on the hub ---- */
+.hero-product,.hero-grid:hover .hero-product{transform:none;transition:none}
+@media(max-width:1000px){.hero-product,.hero-grid:hover .hero-product{transform:none}}
+.eco-hub{animation:hubGlow 3.6s ease-in-out infinite}
+@keyframes hubGlow{0%,100%{box-shadow:0 0 0 1px rgba(17,184,177,.35),0 0 32px 2px rgba(17,184,177,.18)}50%{box-shadow:0 0 0 1px rgba(17,184,177,.55),0 0 72px 12px rgba(17,184,177,.38)}}
+@media(prefers-reduced-motion:reduce){.eco-hub{animation:none}}
+
+/* cover card: the one soft drop shadow on the page */
+.hero-product{box-shadow:0 2px 6px rgba(4,15,29,.04),0 18px 44px -10px rgba(1,59,67,.18)}

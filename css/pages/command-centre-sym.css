@@ -1,0 +1,141 @@
+/* =====================================================================
+   Command Centre · the inside view (8 Oct 2026)
+   Rebuilt from scratch on the Symphony system (css/symphony.css).
+   Rules: one idea per section, one sentence, one visual, one link;
+   big white space; Book a demo is the only call to action.
+   ===================================================================== */
+.cx{--space:clamp(112px,13vw,200px)}
+.cx section{padding:var(--space) 0}
+.cx .center{text-align:center}
+.cx .center .brace{margin-inline:auto}
+.cx h2{font-size:clamp(40px,4.8vw,72px)}
+.cx h2 .sv{display:block}
+.cx .say{margin:26px auto 0;max-width:46ch;font-size:clamp(18px,1.4vw,21px);line-height:1.5;color:#3E5655}
+.cx .center .say{text-align:center}
+.cx .go{margin-top:30px;display:inline-flex;gap:28px;flex-wrap:wrap;justify-content:center}
+.cx .go a{font-weight:600;color:var(--ink);border-bottom:1px solid currentColor;padding-bottom:2px}
+.cx .go a:hover{color:var(--grid)}
+
+/* ---------- 1 · Hero: the product in a lot of air ---------- */
+.cx-hero{padding-top:clamp(72px,9vw,140px)!important;padding-bottom:0!important}
+.cx-hero h1{font-size:clamp(46px,6vw,96px);line-height:.96;margin:0 auto}
+.cx-hero h1 span{display:block}
+.cx-hero .pill{margin-top:40px}
+.cx-hero .cx-stage{position:relative;margin:clamp(72px,8vw,120px) auto 0;width:min(1180px,calc(100% - var(--gutter)*2))}
+.cx-hero .cx-stage::before{content:"";position:absolute;left:6%;right:6%;top:18%;bottom:-8%;border-radius:var(--r-xl);background:linear-gradient(180deg,#D8ECE9,#E9F2F0);z-index:-1}
+.cx .device .screen{height:clamp(320px,44vw,620px)}
+.cx .stage-note{display:block;margin-top:18px;text-align:center;font:600 11px/1 var(--process);letter-spacing:.12em;text-transform:uppercase;color:#8A9A99}
+
+/* ---------- 2 · A day in Command Centre: scroll tour ---------- */
+.cx-tour .s-head{margin-bottom:clamp(40px,5vw,72px)}
+.tour{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(32px,5vw,80px);align-items:center}
+.tour-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tour-list button{display:grid;grid-template-columns:44px 1fr;gap:2px 10px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:20px 0;color:var(--ink);cursor:pointer}
+.tour-list .n{grid-row:span 2;font:600 12px/1.8 var(--process);letter-spacing:.1em;color:#A9B6B5;transition:color .3s}
+.tour-list strong{font-size:clamp(20px,1.7vw,25px);letter-spacing:-.025em;font-weight:600;color:#8A9A99;transition:color .3s}
+.tour-list p{grid-column:2;font-size:16px;line-height:1.5;color:#3E5655;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s,opacity .45s,margin .45s}
+.tour-list button[aria-selected="true"] .n{color:var(--grid)}
+.tour-list button[aria-selected="true"] strong{color:var(--ink)}
+.tour-list button[aria-selected="true"] p{max-height:90px;opacity:1;margin-top:8px}
+.tour-list button:hover strong{color:var(--ink)}
+.tour-view{position:relative}
+.tour-view .device{width:auto}
+.tour-dots{display:flex;gap:6px;margin-top:22px;justify-content:center}
+.tour-dots i{width:7px;height:7px;border-radius:999px;background:rgba(4,15,29,.18);transition:width .3s,background .3s}
+.tour-dots i.on{width:26px;background:var(--ink)}
+@media(min-width:961px){
+  .tour-track{height:calc(var(--n,5) * 75vh)}
+  .tour-stick{position:sticky;top:0;min-height:100vh;display:grid;align-items:center;padding:96px 0 32px}
+}
+@media(max-width:960px){
+  .tour{grid-template-columns:1fr}
+  .tour-list{display:flex;gap:8px;overflow-x:auto;border:0;padding-bottom:6px;scrollbar-width:none}
+  .tour-list::-webkit-scrollbar{display:none}
+  .tour-list li{flex:none}
+  .tour-list button{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:10px 16px;background:#fff;width:auto}
+  .tour-list button strong{font-size:15px}
+  .tour-list .n{line-height:1}
+  .tour-list p{display:none}
+  .tour-list button[aria-selected="true"]{background:var(--ink);border-color:var(--ink)}
+  .tour-list button[aria-selected="true"] strong,.tour-list button[aria-selected="true"] .n{color:#fff}
+  .tour-caption{display:block!important}
+}
+.tour-caption{display:none;margin:16px 0 0;font-size:16px;color:#3E5655;text-align:center}
+
+/* ---------- 3 · Prepared by Bunya. Decided by you. ---------- */
+.cx-approve{background:#E7EEEC}
+.trail2{position:relative;margin:clamp(56px,6vw,88px) auto 0;width:min(1040px,100%);padding:clamp(28px,4vw,48px) clamp(20px,4vw,48px);border-radius:var(--r-xl);background:#fff;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;text-align:left}
+.trail2::before{content:"";position:absolute;left:calc(clamp(20px,4vw,48px) + 14px);right:calc(clamp(20px,4vw,48px) + 14px);top:calc(clamp(28px,4vw,48px) + 14px);height:2px;background:var(--mist)}
+.trail2::after{content:"";position:absolute;left:calc(clamp(20px,4vw,48px) + 14px);top:calc(clamp(28px,4vw,48px) + 14px);height:2px;width:0;background:var(--pulse);transition:width 1.8s cubic-bezier(.4,0,.2,1) .3s}
+.trail2.in::after{width:calc(100% - 2*clamp(20px,4vw,48px) - 28px)}
+.trail2 li{position:relative;list-style:none;display:grid;gap:8px;align-content:start}
+.trail2 .d{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--mist);display:grid;place-items:center;z-index:1;transition:border-color .4s,background .4s}
+.trail2 .d svg{width:14px;height:14px;fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .4s}
+.trail2.in li .d{border-color:var(--pulse);background:var(--pulse)}
+.trail2.in li .d svg{opacity:1}
+.trail2.in li:nth-child(1) .d,.trail2.in li:nth-child(1) .d svg{transition-delay:.3s}
+.trail2.in li:nth-child(2) .d,.trail2.in li:nth-child(2) .d svg{transition-delay:.9s}
+.trail2.in li:nth-child(3) .d,.trail2.in li:nth-child(3) .d svg{transition-delay:1.5s}
+.trail2.in li:nth-child(4) .d,.trail2.in li:nth-child(4) .d svg{transition-delay:2.1s}
+.trail2.in li.signoff .d{background:var(--signal);border-color:var(--signal)}
+.trail2 strong{margin-top:10px;font-size:clamp(19px,1.6vw,22px);letter-spacing:-.02em;color:var(--ink)}
+.trail2 small{font-size:15px;line-height:1.45;color:#3E5655}
+.trail2 .who2{justify-self:start;font:600 11px/1 var(--process);letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:var(--soft);color:var(--deep)}
+.trail2 li.signoff .who2,.trail2 li:nth-child(2) .who2{background:#FFF1CC;color:#6A4A00}
+.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:28px}
+.skills span{padding:9px 16px;border-radius:999px;background:#fff;font-size:15px;font-weight:600;color:var(--ink)}
+.skills b{font:600 11px/1 var(--process);letter-spacing:.12em;text-transform:uppercase;color:#8A9A99;align-self:center;margin-right:6px}
+@media(max-width:760px){
+  .trail2{grid-template-columns:1fr;gap:22px}
+  .trail2::before,.trail2::after{display:none}
+  .trail2 li{grid-template-columns:30px 1fr;column-gap:14px}
+  .trail2 li>*:not(.d){grid-column:2}
+  .trail2 strong{margin-top:0}
+}
+
+/* ---------- 4 · It lives where you work ---------- */
+.cx-m365 .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,6vw,96px);align-items:center}
+.cx-m365 .say{margin-left:0}
+.cx-m365 .go{justify-content:flex-start}
+.m365-stage{border-radius:var(--r-xl);background:var(--deep);padding:clamp(24px,4vw,56px);position:relative;overflow:hidden;isolation:isolate}
+.m365-stage::before{content:"";position:absolute;inset:-30%;z-index:-1;background:repeating-radial-gradient(circle at 90% 10%,transparent 0 22px,rgba(255,255,255,.045) 22px 23px)}
+.m365-stage .device{width:auto}
+.cx .m365-stage .device .screen{height:clamp(300px,32vw,460px)}
+.m365-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.m365-tools span{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;font-size:14px;font-weight:600}
+@media(max-width:1000px){.cx-m365 .wrap{grid-template-columns:1fr}}
+
+/* ---------- 5 · Your process, not a template ---------- */
+.flow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 10px;margin:clamp(56px,6vw,88px) auto 0;max-width:1000px}
+.flow span{position:relative;padding:16px 22px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:clamp(15px,1.3vw,18px);color:var(--ink);opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.flow i{width:24px;height:2px;background:var(--mist);flex:none;opacity:0;transition:opacity .6s}
+.flow.in span,.flow.in i{opacity:1;transform:none}
+.flow.in>*:nth-child(3){transition-delay:.12s}.flow.in>*:nth-child(5){transition-delay:.24s}.flow.in>*:nth-child(7){transition-delay:.36s}
+.flow.in>*:nth-child(9){transition-delay:.48s}.flow.in>*:nth-child(11){transition-delay:.6s}.flow.in>*:nth-child(13){transition-delay:.72s}
+.flow span.gate2{border-color:var(--signal);box-shadow:0 0 0 4px #FFF1CC}
+.flow span.gate2::after{content:"Approval";position:absolute;top:-11px;left:50%;transform:translateX(-50%);padding:3px 8px;border-radius:999px;background:var(--signal);font:600 10px/1 var(--process);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.flow span.yours{border-style:dashed;border-color:var(--grid);color:var(--grid);background:transparent}
+@media(max-width:640px){.flow i{display:none}}
+
+/* ---------- 6 · Questions (shared .s-faq / .faq-list) ---------- */
+.cx .s-faq{padding:var(--space) 0}
+
+/* ---------- Add-ons: one quiet line ---------- */
+.cx-addons{padding:0!important}
+.cx-addons p{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;font-size:16px;color:#6E7F7E;text-align:center}
+.cx-addons a{font-weight:600;color:var(--ink)}
+.cx-addons a:hover{color:var(--grid)}
+
+/* ---------- 7 · Closing (shared .s-close / .giant) ---------- */
+.cx .s-close{padding:clamp(110px,12vw,190px) 0 clamp(96px,10vw,160px)}
+
+@media(prefers-reduced-motion:reduce){.trail2::after{transition:none}.flow span,.flow i{opacity:1;transform:none;transition:none}}
+
+/* the giant closing keeps its serif word on the same line as the logo tile */
+.cx .giant .sv{display:inline}
+
+/* Brand alignment (10 Oct 2026): one Signal per frame; the sign-off in the trail keeps it */
+.flow span.gate2{border-color:var(--grid);box-shadow:0 0 0 4px var(--mist)}
+.flow span.gate2::after{background:var(--grid);color:#fff}
+.trail2,.m365-stage{border-radius:12px}
+.cx-hero .cx-stage::before{border-radius:12px}

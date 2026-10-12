@@ -1,0 +1,169 @@
+/* =====================================================================
+   bunya.ai — site layer for the v2 rebuild (5 Oct 2026)
+   Sits on top of Dana's dana-base.css + dana-framed.css. Adds only what
+   the new navigation and page structure need, in Dana's visual language:
+   Mist hairlines, 3px cards / 6px frames, Saira labels, no shadows,
+   one Signal per frame.
+   ===================================================================== */
+
+/* ---------- Header: mega-menu triggers (desktop) ---------- */
+#site-nav{position:sticky;top:0;z-index:100}
+/* The header (and its mega panels) must sit above .nav-scrim (z-index 90), or the scrim covers the open
+   panel: the pointer then "leaves" the header, the panel closes, and it flickers open and shut. */
+header.nav{position:relative;z-index:95}
+.nav-links{gap:clamp(4px,1.2vw,14px)}
+.nav-links>.nav-trigger,.nav-links>a:not(.nav-cta){font:500 15px/1.2 var(--font);color:var(--ink);background:none;border:0;border-bottom:2px solid transparent;
+  padding:10px clamp(6px,.7vw,10px);display:inline-flex;align-items:center;gap:6px;white-space:nowrap;cursor:pointer}
+.nav-links>.nav-trigger:hover,.nav-links>a:not(.nav-cta):hover{color:var(--grid)}
+.nav-trigger .caret{width:9px;height:9px;transition:transform .2s}
+.nav-trigger[aria-expanded="true"]{color:var(--grid);border-bottom-color:var(--pulse)}
+.nav-trigger[aria-expanded="true"] .caret{transform:rotate(180deg)}
+.nav-links>.active{color:var(--grid);border-bottom-color:var(--pulse)}
+.nav-links .nav-cta{margin-left:clamp(4px,1vw,12px)}
+@media(max-width:1060px){.nav-links{display:none}.menu-btn{display:grid;place-items:center}.mega,.nav-scrim{display:none}}
+
+/* ---------- Mega panels ---------- */
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--white);border-bottom:var(--hair);
+  opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility .16s}
+.mega.open{opacity:1;visibility:visible;transform:none}
+.nav-switching .mega{transition:none}
+.mega-body{width:min(var(--maxw),calc(100% - var(--gutter)*2));margin:auto;padding:28px 0 32px;display:grid;gap:32px}
+.mega-cols{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.95fr)}
+.mega-label{font-family:var(--process);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grid);
+  margin:0 0 8px;padding-bottom:10px;border-bottom:var(--hair)}
+.mega-link{display:flex;flex-direction:column;gap:2px;padding:11px 12px;margin:0 -12px;border-radius:var(--r-card)}
+.mega-link:hover{background:var(--pale);color:inherit}
+.mega-link strong{font-weight:600;font-size:16px;color:var(--ink)}
+.mega-link span{font-size:14px;line-height:1.45;color:var(--focus)}
+.mega-link:hover strong{color:var(--grid)}
+.mega-note{font-size:13px;color:var(--grid);margin-top:8px}
+
+/* featured card: Focus Green panel inside a white mount (Dana's closing panel, small) */
+.mega-feature{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:24px;border-radius:var(--r-frame);
+  background:var(--focus);color:#fff;border:1px solid var(--focus);outline:4px solid #fff}
+.mega-feature::after{content:"";position:absolute;inset:-5px;border:1px solid rgba(217,230,230,.7);border-radius:calc(var(--r-frame) + 4px);pointer-events:none}
+.mega-feature .k{font-family:var(--process);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--pulse)}
+.mega-feature .t{font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.012em;color:#fff}
+.mega-feature .b{align-self:flex-start;display:inline-flex;align-items:center;min-height:42px;padding:10px 16px;border-radius:var(--r-card);background:#fff;color:var(--focus);font-weight:600;font-size:15px}
+.mega-feature:hover{color:#fff}
+.mega-feature:hover .b{background:var(--pulse);color:var(--midnight)}
+.mega-feature.light{background:var(--pale);color:var(--ink);border-color:var(--mist)}
+.mega-feature.light .k{color:var(--grid)}
+.mega-feature.light .t{color:var(--ink)}
+.mega-feature.light .b{background:var(--focus);color:#fff}
+
+/* Solutions: Dana's numbered index strip, in journey order */
+.mega-journey{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--focus);border-bottom:var(--hair)}
+.mega-journey a{display:grid;gap:6px;align-content:start;padding:18px clamp(14px,1.6vw,22px) 20px;border-right:var(--hair)}
+.mega-journey a:first-child{padding-left:0}
+.mega-journey a:last-child{border-right:0}
+.mega-journey a:hover{background:var(--pale);color:inherit}
+.mega-journey a:first-child:hover{padding-left:12px}
+.mega-journey .n{font-family:var(--process);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grid)}
+.mega-journey strong{font-size:17px;line-height:1.25;color:var(--ink)}
+.mega-journey span:last-child{font-size:14px;line-height:1.45;color:var(--focus)}
+.mega-across{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;padding:14px 0 0}
+.mega-across .k{font-family:var(--process);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grid)}
+.mega-across strong{font-size:16px;color:var(--ink)}
+.mega-across span:last-child{font-size:14px;color:var(--focus)}
+.mega-across:hover strong{color:var(--grid)}
+.mega-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.mega-head .mega-label{border:0;padding:0;margin:0}
+
+.mega-foot{border-top:var(--hair);background:var(--pale)}
+.mega-foot>div{width:min(var(--maxw),calc(100% - var(--gutter)*2));margin:auto;padding:13px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--focus)}
+.mega-foot a{font-weight:600;color:var(--grid)}
+.nav-scrim{position:fixed;inset:0;top:0;background:rgba(4,15,29,.18);opacity:0;visibility:hidden;transition:opacity .16s,visibility .16s;z-index:90}
+.nav-scrim.show{opacity:1;visibility:visible}
+
+/* ---------- Mobile menu (Dana's m-overlay) additions ---------- */
+.m-group .m-sub{font-family:var(--process);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pulse);padding:14px 12px 2px}
+.m-group a small{display:block;font-size:14px;color:rgba(255,255,255,.62);margin-top:3px}
+.m-group a .num{font-family:var(--process);color:var(--pulse);margin-right:10px}
+
+/* Homepage headline is longer than Dana's original; scale it to keep the hero to ~4 lines */
+.index-page .hero h1{font-size:clamp(36px,3.5vw,54px)}
+
+/* Dana's products index strip with four entries (the advice journey) */
+.products-nav.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.products-nav.four{grid-template-columns:1fr 1fr}.products-nav.four a:nth-child(2){border-right:0}}
+@media(max-width:760px){.products-nav.four{grid-template-columns:1fr}}
+.who-row{display:flex;gap:10px 22px;flex-wrap:wrap;margin:0 0 22px}
+.across-line{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-top:clamp(36px,4vw,56px);padding:18px 0;border-top:var(--hair);border-bottom:var(--hair);color:var(--ink)}
+.across-line .eyebrow{margin:0}
+.across-line strong{font-size:19px}
+.across-line span:last-child{color:var(--focus)}
+.across-line:hover strong{color:var(--grid)}
+.quote-by{display:block;margin-top:22px;font-size:16px;color:var(--grid)}
+.quote-by strong{color:var(--ink);font-weight:600}
+
+/* ---------- Who acts: Bunya prepares / your team decides ---------- */
+/* Pulse marks what Bunya prepares; Signal marks the human gate (one Signal per frame). */
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--process);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.who::before{content:"";width:8px;height:8px;transform:rotate(45deg);flex:none}
+.who.bunya{color:var(--grid)}.who.bunya::before{background:var(--pulse)}
+.who.team{color:var(--focus)}.who.team::before{background:var(--signal)}
+.gate{border:1px solid var(--signal)!important;background:#FFFBF0}
+
+/* ---------- Journey (index strip + rows), reused from Dana's products pattern ---------- */
+.journey-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(28px,3vw,40px);border-top:1px solid var(--focus);border-bottom:var(--hair);background:#fff}
+.journey-strip a{display:grid;gap:6px;align-content:start;padding:20px clamp(14px,2vw,26px) 22px;border-right:var(--hair);color:var(--ink)}
+.journey-strip a:last-child{border-right:0}
+.journey-strip a:hover{background:var(--pale)}
+.journey-strip .n{font-family:var(--process);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grid)}
+.journey-strip strong{font-size:19px;line-height:1.2}
+.journey-strip span:last-child{font-size:15px;line-height:1.45;color:var(--focus)}
+@media(max-width:900px){.journey-strip{grid-template-columns:1fr 1fr}.journey-strip a:nth-child(2){border-right:0}.journey-strip a:nth-child(-n+2){border-bottom:var(--hair)}}
+@media(max-width:560px){.journey-strip{grid-template-columns:1fr}.journey-strip a{border-right:0;border-bottom:var(--hair)}.journey-strip a:last-child{border-bottom:0}}
+
+/* stage list: numbered rows with prepares / decides / record */
+.stages{display:grid;gap:0;margin-top:clamp(28px,3vw,40px);border-top:1px solid var(--focus)}
+.stage{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);gap:clamp(16px,2.4vw,32px);padding:24px 0;border-bottom:var(--hair);align-items:start}
+.stage>div{display:grid;gap:8px}
+.stage h3{font-size:22px}
+.stage .n{font-family:var(--process);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grid)}
+.stage p{font-size:16px;line-height:1.5;color:var(--body)}
+@media(max-width:900px){.stage{grid-template-columns:1fr 1fr}.stage>div:first-child{grid-column:1/-1}}
+@media(max-width:560px){.stage{grid-template-columns:1fr}}
+
+/* approval trail: four steps in a row inside a frame */
+.trail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:clamp(28px,3vw,40px)}
+.trail li{list-style:none;padding:20px clamp(14px,1.8vw,22px);border-left:var(--hair);display:grid;gap:6px;align-content:start}
+.trail li:first-child{border-left:0;padding-left:0}
+.trail strong{font-size:18px;color:var(--ink)}
+.trail small{font-size:14px;color:var(--grid)}
+.trail{padding:0;margin-bottom:0}
+@media(max-width:760px){.trail{grid-template-columns:1fr}.trail li{border-left:0;border-top:var(--hair);padding-left:0}}
+
+/* simple framed card grid used by new pages */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(24px + var(--frame-w,4px));margin-top:clamp(28px,3vw,44px);padding:var(--frame-w,4px)}
+.card-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card-grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card-grid>article{position:relative;border:1px solid var(--mist);outline:var(--frame-w,4px) solid #fff;background:#fff;border-radius:var(--r-frame);padding:26px 24px 28px;display:grid;gap:10px;align-content:start}
+.section-pale .card-grid>article{outline-color:var(--pale)}
+.card-grid h3{font-size:22px}
+.card-grid p{font-size:17px;color:var(--body)}
+@media(max-width:1000px){.card-grid.four{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.card-grid,.card-grid.two,.card-grid.four{grid-template-columns:1fr}}
+
+/* section shells */
+.section{padding:clamp(64px,7vw,96px) 0}
+.section-pale{background:var(--pale);border-top:var(--hair);border-bottom:var(--hair)}
+.section .lead-wide{font-size:clamp(18px,1.4vw,21px);line-height:1.55;color:var(--body);max-width:40em;margin-top:22px}
+.breadcrumb{font-family:var(--process);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--grid);margin-bottom:18px}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ---------- Review markers (remove before launch) ---------- */
+/* [CONFIRM] — copy or a claim the team must verify */
+.confirm{background:#FFF4D6;box-shadow:inset 0 -2px 0 var(--signal)!important;color:var(--midnight);padding:0 3px;border-radius:2px;font-weight:500}
+/* For Dana — a spot designed from the system that still needs her finish */
+.dana-note{display:block;margin:14px 0 0;padding:10px 14px;border:1px dashed var(--grid);border-radius:var(--r-card);background:rgba(17,184,177,.06);
+  font:500 13px/1.45 var(--font);color:var(--focus)}
+.dana-note::before{content:"For Dana · ";font-family:var(--process);font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grid)}
+html.hide-notes .dana-note{display:none}
+html.hide-notes .confirm{background:none;box-shadow:none!important;padding:0}
+.review-toggle{position:fixed;right:16px;bottom:16px;z-index:300;font:600 13px var(--font);padding:10px 14px;border-radius:var(--r-card);border:1px solid var(--focus);background:#fff;color:var(--focus);cursor:pointer}
+.review-toggle:hover{background:var(--focus);color:#fff}
+
+/* Product screen stills (replace the retired live demo screens) */
+.screen[data-screen]>img{display:block;width:100%;height:100%;object-fit:cover;object-position:left top}

@@ -1,0 +1,26 @@
+
+/* ---------- Cookie consent (Bunya) ---------- */
+.bunya-consent[hidden],.bunya-consent-reopen[hidden],.bunya-consent-prefs[hidden],.bunya-consent-btn[hidden]{display:none!important}
+.bunya-consent{position:fixed;z-index:10000;left:20px;right:20px;bottom:max(20px,env(safe-area-inset-bottom,0px));max-width:980px;margin-inline:auto;display:flex;gap:32px;align-items:center;padding:24px 28px;background:var(--white);color:var(--body);border:var(--hair);border-radius:var(--r-frame);box-shadow:var(--shadow-lg);font:400 15px/1.5 var(--font);text-align:left}
+.bunya-consent-body{flex:1 1 auto;min-width:0}
+.bunya-consent-eyebrow{display:block;margin-bottom:6px;font-family:var(--process);font-weight:600;font-size:12px;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--grid)}
+.bunya-consent-title{display:block;font-size:19px;font-weight:700;line-height:1.2;letter-spacing:-.012em;color:var(--ink)}
+.bunya-consent p{margin:6px 0 0}
+.bunya-consent a{color:var(--grid);text-decoration:underline;text-underline-offset:2px}
+.bunya-consent a:hover{color:var(--focus)}
+.bunya-consent-prefs{margin-top:14px;padding-top:14px;border-top:var(--hair);display:grid;gap:10px}
+.bunya-consent-option{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer}
+.bunya-consent-option input{margin:3px 0 0;width:16px;height:16px;flex:none;accent-color:var(--grid)}
+.bunya-consent-option b{color:var(--ink);margin-right:4px}
+.bunya-consent-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;flex:none}
+.bunya-consent-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border-radius:var(--r-card);border:1px solid var(--focus);font-weight:600;font-size:15px;line-height:1.2;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.bunya-consent-btn--solid{background:var(--focus);color:var(--white)}
+.bunya-consent-btn--solid:hover{background:var(--grid);border-color:var(--grid);color:var(--white)}
+.bunya-consent-btn--outline{background:transparent;color:var(--focus)}
+.bunya-consent-btn--outline:hover{background:var(--pale);color:var(--focus)}
+.bunya-consent-btn--text{background:transparent;border-color:transparent;color:var(--focus);text-decoration:underline;text-underline-offset:3px;padding-inline:8px}
+.bunya-consent-btn--text:hover{color:var(--grid)}
+.bunya-consent-reopen{position:fixed;z-index:9999;left:16px;bottom:max(16px,env(safe-area-inset-bottom,0px));padding:8px 14px;border:var(--hair);border-radius:999px;background:var(--white);color:var(--focus);box-shadow:var(--shadow);font-family:var(--process);font-weight:600;font-size:12px;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:border-color .15s,color .15s}
+.bunya-consent-reopen:hover{border-color:var(--grid);color:var(--grid)}
+@media (width<=760px){.bunya-consent{left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom,0px));display:block;padding:20px;max-height:min(70vh,calc(100dvh - 24px));overflow:auto;-webkit-overflow-scrolling:touch}.bunya-consent-actions{margin-top:16px;flex-direction:column;align-items:stretch}.bunya-consent-btn{width:100%}.bunya-consent-btn--text{order:1}}
+@media (forced-colors:active){.bunya-consent,.bunya-consent-reopen,.bunya-consent-btn{border:1px solid CanvasText}}
